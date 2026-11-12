@@ -7,7 +7,7 @@ import Benefit from "@/components/sections/Benefit";
 import Compare from "@/components/sections/Compare";
 import ExclusiveMall from "@/components/sections/ExclusiveMall";
 import Story from "@/components/sections/Story";
-import Proposal from "@/components/sections/Proposal";
+import { ProposalPoints } from "@/components/sections/Proposal";
 import {
   ArrowIcon,
   BoxIcon,
@@ -33,17 +33,6 @@ const services = [
   { icon: GiftIcon, title: "판촉물·기념품", desc: "로고를 넣은 판촉물을 견적, 시안, 제작, 배송까지 한 번에" },
   { icon: CartIcon, title: "구매대행", desc: "목록에 없는 품목도 대신 구매해 같은 세금계산서로 청구" },
   { icon: BuildingIcon, title: "렌탈 제휴", desc: "정수기·공기청정기, 커피머신, 복합기 렌탈 상담" },
-];
-
-const reasons = [
-  { title: "구매 단가 절감", desc: "업계 최대 매입량과 600여 협력사를 바탕으로, 자주 사는 품목부터 지금보다 나은 단가를 제안합니다." },
-  { title: "한 곳에서 통합 구매", desc: "사무용품, 탕비용품, 소모품, 제작물까지 거래처 하나로. 업체 관리와 발주 업무가 줄어듭니다." },
-  { title: "전담 담당자 배정", desc: "콜센터가 아니라 담당자 직통 번호로 연락합니다. 견적, 발주, 배송, 반품까지 한 사람이 챙깁니다." },
-  { title: "빠른 배송", desc: "직배송 차량 68대와 직영점 20곳으로 다음 날 도착. 급한 물품은 가까운 매장에서 긴급 지원합니다." },
-  { title: "월 단위 정산·세금계산서", desc: "한 달 구매분을 묶어 월 1회 정산하고 세금계산서를 발행합니다. 법인카드 결제도 가능합니다." },
-  { title: "구매 내역·예산 관리", desc: "부서별 예산, 승인 결재, 구매 내역 조회·엑셀 다운로드로 지출을 투명하게 관리합니다." },
-  { title: "대량·정기 주문 대응", desc: "복사지, 토너, 생수처럼 반복되는 품목은 정기 공급으로, 대량 주문은 별도 단가로 진행합니다." },
-  { title: "검증된 품질 관리", desc: "3단계 검수와 ISO 9001·14001 인증 체계, 불량 시 5일 이내 교환으로 문제를 빠르게 해결합니다." },
 ];
 
 const steps = [
@@ -83,7 +72,7 @@ const faqs = [
     a: "오피스디포의 A/S·반품 전담 파트에서 회수하고, 접수 후 5일 이내 정상 상품으로 교환해 드립니다.",
   },
   {
-    q: "공식 세일즈에이전트는 어떤 역할인가요?",
+    q: "공식 세일즈에이전시는 어떤 역할인가요?",
     a: "오피스디포와 계약을 맺고 기업 고객의 거래 상담, 견적, 도입, 이후 관리를 맡습니다. 상품과 배송, 정산은 오피스디포 시스템으로 그대로 이루어집니다.",
   },
 ];
@@ -163,39 +152,18 @@ export default function Home() {
         <Compare />
 
         {/* About */}
-        <section id="about" className="py-20 sm:py-28">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
-            <div>
-              <p className="text-sm font-bold tracking-wide text-brand">ABOUT</p>
-              <h2 className="mt-3 text-[26px] font-black leading-snug tracking-tight sm:text-4xl">
-                오피스디포의 상품·물류에
-                <br />
-                담당자의 1:1 관리를 더했습니다
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
-                저희는 오피스디포와 계약을 맺은 <strong className="text-ink">공식 세일즈에이전트</strong>
-                입니다. 상품, 배송, 정산은 오피스디포 시스템으로 그대로 받으시고, 거래 상담과 견적,
-                전용몰 도입, 이후 관리는 담당자가 직접 맡습니다.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-                업계 1위 회사의 시스템은 그대로 누리면서, 작은 일 하나도 바로 전화할 수 있는 거래처가
-                되겠습니다.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {[
-                ["상품·물류", "오피스디포", "8만여 종 · 전국 배송"],
-                ["상담·견적", "전담 담당자", "직통 전화 응대"],
-                ["정산", "월 1회 통합", "세금계산서·카드결제"],
-                ["관리", "전용 MRO몰", "승인·예산·계정"],
-              ].map(([k, v, d]) => (
-                <div key={k} className="rounded-2xl bg-cream p-5 sm:p-7">
-                  <p className="text-sm font-medium text-brand">{k}</p>
-                  <p className="mt-2 text-lg font-black sm:text-xl">{v}</p>
-                  <p className="mt-1 text-sm text-muted">{d}</p>
-                </div>
-              ))}
-            </div>
+        <section id="about" className="py-20 sm:py-24">
+          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+            <p className="text-sm font-bold tracking-wide text-brand">ABOUT</p>
+            <h2 className="mt-3 text-[26px] font-black leading-snug tracking-tight sm:text-4xl">
+              오피스디포의 상품·물류에
+              <br />
+              담당자의 1:1 관리를 더했습니다
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+              저희는 오피스디포와 계약을 맺은 <strong className="text-ink">공식 세일즈에이전시</strong>입니다. 상품, 배송, 정산은
+              오피스디포 시스템으로 그대로 받으시고, 거래 상담과 견적, 전용몰 도입, 이후 관리는 담당자가 직접 맡습니다.
+            </p>
           </div>
         </section>
 
@@ -205,7 +173,7 @@ export default function Home() {
             <SectionHead
               eyebrow="PRODUCTS & SERVICES"
               title="사무실에 필요한 품목을 한 곳에서"
-              desc="취급 상품 8만여 종. 지금 여러 업체에서 나눠 사는 품목을 한 번에 견적 내 드립니다."
+              desc="취급 상품 8만여 종. 지금 여러 업체에서 나눠 사는 품목을 한 번에 견적 내 드리고, 반복 품목은 정기 공급으로, 대량 주문은 별도 단가로 진행합니다."
             />
             <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
               {services.map(({ icon: Icon, title, desc }) => (
@@ -215,25 +183,6 @@ export default function Home() {
                   </span>
                   <h3 className="mt-4 text-base font-bold sm:text-lg">{title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted sm:text-[15px]">{desc}</p>
-                </div>
-              ))}
-            </div>
-            <CtaPair />
-          </div>
-        </section>
-
-        {/* Why */}
-        <section className="py-20 sm:py-28">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <SectionHead eyebrow="WHY US" title={<>총무·구매 담당자가<br className="sm:hidden" /> 거래처를 바꾸는 이유</>} desc="비용은 줄이고, 구매 업무는 가볍게. 담당자의 시간을 아껴 드리는 거래처가 되겠습니다." />
-            <div className="mt-12 grid gap-4 md:grid-cols-2">
-              {reasons.map((r, i) => (
-                <div key={r.title} className="flex gap-5 rounded-2xl border border-line p-7">
-                  <span className="text-3xl font-black text-brand">{String(i + 1).padStart(2, "0")}</span>
-                  <div>
-                    <h3 className="text-lg font-bold">{r.title}</h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-muted">{r.desc}</p>
-                  </div>
                 </div>
               ))}
             </div>
@@ -288,8 +237,6 @@ export default function Home() {
           </div>
         </section>
 
-        <Proposal />
-
         {/* Process */}
         <section id="process" className="py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -310,7 +257,8 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-            <div className="mx-auto mt-14 max-w-4xl rounded-2xl bg-cream p-6 sm:p-8">
+            <ProposalPoints />
+            <div className="mx-auto mt-10 max-w-4xl rounded-2xl bg-cream p-6 sm:p-8">
               <h3 className="text-lg font-black sm:text-xl">견적 받을 때 준비하면 좋은 것</h3>
               <p className="mt-1 text-sm text-muted">없어도 괜찮습니다. 견적 의뢰서 요청사항에 대략 적어 주시면 담당자가 함께 정리해 드립니다.</p>
               <ul className="mt-5 grid gap-3 sm:grid-cols-3">

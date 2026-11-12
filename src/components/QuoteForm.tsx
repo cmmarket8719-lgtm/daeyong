@@ -112,7 +112,10 @@ export default function QuoteForm() {
         </label>
         <p className="mt-2 pl-6">
           수집 항목: 회사명, 담당자 성함, 연락처, 이메일, 주소 · 목적: 견적 안내 및 거래 상담 · 보유 기간: 상담 완료 후
-          1년 ({site.agentName})
+          1년 ({site.agentName}){" "}
+          <a href="/privacy" target="_blank" rel="noopener" className="font-bold text-ink underline underline-offset-2">
+            개인정보처리방침 보기
+          </a>
         </p>
         {e.consent && <p className="mt-1 pl-6 text-brand">{e.consent}</p>}
       </div>

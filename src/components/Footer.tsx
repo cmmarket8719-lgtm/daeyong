@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 export default function Footer() {
@@ -30,7 +31,12 @@ export default function Footer() {
             네이버 블로그
           </a>
         </div>
-        <p className="mt-8 border-t border-line pt-6 text-xs leading-relaxed">
+        <div className="mt-8 border-t border-line pt-6">
+          <Link href="/privacy" className="text-xs font-bold text-ink hover:text-brand">
+            개인정보처리방침
+          </Link>
+        </div>
+        <p className="mt-3 text-xs leading-relaxed">
           본 사이트는 {site.brand} 세일즈에이전시가 운영하는 상담 사이트입니다. 상품 공급과 배송은 {site.brand}가 담당합니다.
         </p>
       </div>
