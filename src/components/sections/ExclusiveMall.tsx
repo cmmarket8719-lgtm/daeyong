@@ -1,8 +1,7 @@
+import Image from "next/image";
 import { ArrowIcon, CheckIcon } from "../icons";
 
-// 실제 고객사 화면 대신 구성만 보여주는 목업입니다. 회사명·주문 데이터는 모두 예시입니다.
-const SAMPLE_CO = "○○주식회사";
-
+// 실제 오피스디포 B2B몰 화면. 공개용으로 고객사명·담당자·주문번호·본사 연락처 영역은 흐리게 처리했습니다.
 const features = [
   { title: "우리 회사 로고·전용 주소", desc: "로그인 화면부터 회사 로고와 배너가 들어간 전용몰로 열립니다." },
   { title: "필요한 품목만 노출", desc: "자주 사는 품목·카테고리 위주로 구성하고, 불필요한 상품은 숨깁니다." },
@@ -12,22 +11,8 @@ const features = [
   { title: "월 1회 세금계산서·법인카드", desc: "한 달 구매분을 묶어 정산하고, 지사·현장은 법인카드로 결제합니다." },
 ];
 
-const categories = ["복사용지/지류", "식음료", "사무용품", "파일/바인더", "필기구", "생활용품", "사무기기", "산업/MRO자재", "잉크/토너", "출력/인쇄/제작"];
 
-const orders = [
-  { date: "11-06", amount: "65,000", status: "배송완료" },
-  { date: "11-04", amount: "57,940", status: "배송완료" },
-  { date: "11-03", amount: "128,300", status: "승인대기" },
-];
-
-const popular = [
-  { name: "A4 복사용지", color: "bg-sky-100" },
-  { name: "종이컵", color: "bg-amber-100" },
-  { name: "미용티슈", color: "bg-emerald-100" },
-  { name: "롤화장지", color: "bg-pink-100" },
-];
-
-function BrowserFrame({ url, children }: { url: string; children: React.ReactNode }) {
+function Shot({ src, alt, width, height, url }: { src: string; alt: string; width: number; height: number; url: string }) {
   return (
     <div className="overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/10">
       <div className="flex items-center gap-2 border-b border-line bg-paper px-3 py-2">
@@ -38,102 +23,8 @@ function BrowserFrame({ url, children }: { url: string; children: React.ReactNod
         </span>
         <span className="ml-2 flex-1 truncate rounded bg-white px-2 py-0.5 text-[10px] text-muted ring-1 ring-line sm:text-[11px]">{url}</span>
       </div>
-      {children}
+      <Image src={src} alt={alt} width={width} height={height} className="h-auto w-full" sizes="(min-width: 1024px) 560px, 100vw" />
     </div>
-  );
-}
-
-function LoginMock() {
-  return (
-    <BrowserFrame url="https://○○company.b2b-mall.co.kr">
-      <div className="relative h-36 overflow-hidden bg-[#2563eb] p-4 text-white sm:h-44">
-        <span className="inline-flex h-7 items-center rounded bg-white px-2 text-[11px] font-black text-[#2563eb]">우리 회사 로고</span>
-        <p className="mt-4 text-[11px] font-bold opacity-90 sm:text-xs">임직원 전용 구매몰</p>
-        <p className="text-xl font-black leading-tight sm:text-2xl">{SAMPLE_CO}</p>
-        <span aria-hidden className="absolute -bottom-6 right-4 h-24 w-28 skew-x-[-8deg] rounded bg-brand shadow-lg sm:h-28 sm:w-36" />
-      </div>
-      <div className="grid grid-cols-[1fr_auto] gap-2 p-3 sm:p-4">
-        <div className="space-y-1.5">
-          <div className="h-7 rounded border border-line px-2 text-[11px] leading-7 text-muted">ID</div>
-          <div className="h-7 rounded border border-line px-2 text-[11px] leading-7 text-muted">PASSWORD</div>
-        </div>
-        <div className="flex w-20 items-center justify-center rounded bg-ink text-xs font-bold text-white sm:w-24">로그인</div>
-      </div>
-      <div className="grid grid-cols-3 border-t border-line text-center text-[10px] text-muted sm:text-[11px]">
-        <span className="py-2">회사 소개</span>
-        <span className="border-x border-line py-2">B2B 솔루션</span>
-        <span className="py-2">원격지원</span>
-      </div>
-    </BrowserFrame>
-  );
-}
-
-function MallMock() {
-  return (
-    <BrowserFrame url="https://○○company.b2b-mall.co.kr/main">
-      <div className="flex items-center justify-between gap-2 border-b border-line px-3 py-2">
-        <span className="text-xs font-black tracking-tight text-[#1e3a8a] sm:text-sm">우리 회사 로고</span>
-        <span className="hidden h-6 flex-1 rounded border border-line sm:block sm:max-w-[40%]" />
-        <span className="text-[10px] text-muted sm:text-[11px]">
-          <b className="text-brand">{SAMPLE_CO}</b> 김*리 님
-        </span>
-      </div>
-      <div className="flex items-center gap-1 border-b-2 border-ink text-[10px] sm:text-[11px]">
-        <span className="bg-ink px-2 py-1.5 font-bold text-white sm:px-3">≡ 상품 카테고리</span>
-        <span className="px-1.5 text-muted">장바구니</span>
-        <span className="px-1.5 text-muted">주문배송조회</span>
-        <span className="ml-auto mr-1 rounded bg-sky-500 px-1.5 py-0.5 font-bold text-white">승인정보</span>
-        <span className="mr-1 rounded bg-ink px-1.5 py-0.5 font-bold text-white">관리자</span>
-      </div>
-      <div className="grid grid-cols-[84px_1fr] sm:grid-cols-[104px_1fr]">
-        <ul className="border-r border-line text-[9.5px] text-ink/80 sm:text-[10.5px]">
-          {categories.map((c) => (
-            <li key={c} className="truncate border-b border-line px-2 py-[5px]">
-              · {c}
-            </li>
-          ))}
-        </ul>
-        <div className="space-y-2.5 p-2 sm:p-3">
-          <div className="flex h-12 items-center rounded bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] px-3 text-[11px] font-bold text-white sm:h-14 sm:text-xs">
-            회사 배너 · 공지사항 영역
-          </div>
-          <div>
-            <p className="mb-1 text-[10.5px] font-bold sm:text-[11px]">▌최근 주문 현황</p>
-            <table className="w-full text-center text-[9.5px] sm:text-[10.5px]">
-              <thead className="bg-paper text-muted">
-                <tr>
-                  <th className="py-1 font-medium">주문일</th>
-                  <th className="font-medium">금액</th>
-                  <th className="font-medium">상태</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orders.map((o) => (
-                  <tr key={o.date + o.amount} className="border-b border-line">
-                    <td className="py-1">{o.date}</td>
-                    <td>{o.amount}원</td>
-                    <td className={o.status === "승인대기" ? "font-bold text-brand" : ""}>{o.status}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <p className="mb-1 text-center text-[10.5px] font-bold sm:text-[11px]">
-              우리 회사에서 <span className="text-[#2563eb]">많이 구매하는 상품</span>
-            </p>
-            <div className="grid grid-cols-4 gap-1.5">
-              {popular.map((p) => (
-                <div key={p.name} className="rounded border border-line p-1 text-center">
-                  <div className={`h-8 rounded ${p.color} sm:h-10`} />
-                  <p className="mt-1 truncate text-[9px] sm:text-[10px]">{p.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </BrowserFrame>
   );
 }
 
@@ -154,12 +45,12 @@ export default function ExclusiveMall() {
         </div>
 
         {/* 로그인 → 전용몰 화면 */}
-        <div className="mt-14 grid items-center gap-6 lg:grid-cols-[0.85fr_auto_1.15fr] lg:gap-5">
+        <div className="mt-14 grid items-center gap-6 lg:grid-cols-[1fr_auto_1.15fr] lg:gap-5">
           <figure>
-            <LoginMock />
+            <Shot src="/mall/login.webp" alt="오피스디포 B2B 전용몰 로그인 화면" width={804} height={622} url="오피스디포 B2B 전용몰 · 로그인" />
             <figcaption className="mt-3 text-center text-sm font-bold">
               <span className="mr-1.5 rounded-full bg-brand px-2 py-0.5 text-xs text-white">STEP 1</span>
-              회사 로고가 들어간 전용 로그인 화면
+              오피스디포 B2B 전용몰 로그인 화면
             </figcaption>
           </figure>
           <div className="flex justify-center text-brand">
@@ -168,14 +59,14 @@ export default function ExclusiveMall() {
             </span>
           </div>
           <figure>
-            <MallMock />
+            <Shot src="/mall/mall.webp" alt="로그인 후 오피스디포 B2B 전용몰 메인 화면" width={1008} height={819} url="오피스디포 B2B 전용몰 · 메인" />
             <figcaption className="mt-3 text-center text-sm font-bold">
               <span className="mr-1.5 rounded-full bg-brand px-2 py-0.5 text-xs text-white">STEP 2</span>
               우리 회사 품목·주문 현황·승인이 한 화면에
             </figcaption>
           </figure>
         </div>
-        <p className="mt-4 text-center text-xs text-muted">* 이해를 돕기 위한 예시 화면입니다. 실제 화면은 회사별 구성에 따라 다릅니다.</p>
+        <p className="mt-4 text-center text-xs text-muted">* 실제 오피스디포 B2B몰 화면이며, 고객사 정보는 가렸습니다. 회사별 구성에 따라 화면은 다를 수 있습니다.</p>
 
         <ul className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
