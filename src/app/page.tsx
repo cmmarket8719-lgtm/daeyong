@@ -11,30 +11,12 @@ import PriceSample from "@/components/sections/PriceSample";
 import { ProposalPoints } from "@/components/sections/Proposal";
 import {
   ArrowIcon,
-  BoxIcon,
-  BuildingIcon,
-  CartIcon,
   CheckIcon,
-  CoffeeIcon,
   DocIcon,
-  GiftIcon,
   PhoneIcon,
-  PrintIcon,
-  ToolIcon,
   TruckIcon,
 } from "@/components/icons";
 import { brandStats, site, statsNote } from "@/lib/site";
-
-const services = [
-  { icon: BoxIcon, title: "사무용품", desc: "필기구, 파일·바인더, 노트, 사무기기 등 매일 쓰는 기본 품목" },
-  { icon: DocIcon, title: "복사지·잉크·토너", desc: "가장 많이 사는 소모품. 사용량에 맞춘 정기 공급과 단가 협의" },
-  { icon: CoffeeIcon, title: "탕비실·생활용품", desc: "커피·음료, 생수, 간식, 화장지·세제 등 사무실 생활 소모품" },
-  { icon: ToolIcon, title: "MRO·안전 소모품", desc: "청소·위생용품, 산업안전용품 등 현장 운영에 필요한 자재" },
-  { icon: PrintIcon, title: "출력·제본·제작물", desc: "대량 출력, 제본, 현수막·X배너, 명함·봉투 제작" },
-  { icon: GiftIcon, title: "판촉물·기념품", desc: "로고를 넣은 판촉물을 견적, 시안, 제작, 배송까지 한 번에" },
-  { icon: CartIcon, title: "구매대행", desc: "목록에 없는 품목도 대신 구매해 같은 세금계산서로 청구" },
-  { icon: BuildingIcon, title: "렌탈 제휴", desc: "정수기·공기청정기, 커피머신, 복합기 렌탈 상담" },
-];
 
 const steps = [
   { title: "견적 의뢰", desc: "견적 의뢰서를 남기시거나 전화로 문의해 주세요." },
@@ -152,45 +134,6 @@ export default function Home() {
         <ExclusiveMall />
         <Compare />
         <PriceSample />
-
-        {/* About */}
-        <section id="about" className="py-20 sm:py-24">
-          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-            <p className="text-sm font-bold tracking-wide text-brand">ABOUT</p>
-            <h2 className="mt-3 text-[26px] font-black leading-snug tracking-tight sm:text-4xl">
-              오피스디포의 상품·물류에
-              <br />
-              담당자의 1:1 관리를 더했습니다
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
-              저희는 오피스디포와 계약을 맺은 <strong className="text-ink">공식 세일즈에이전시</strong>입니다. 상품, 배송, 정산은
-              오피스디포 시스템으로 그대로 받으시고, 거래 상담과 견적, 전용몰 도입, 이후 관리는 담당자가 직접 맡습니다.
-            </p>
-          </div>
-        </section>
-
-        {/* Services */}
-        <section id="services" className="bg-paper py-20 sm:py-28">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <SectionHead
-              eyebrow="PRODUCTS & SERVICES"
-              title="사무실에 필요한 품목을 한 곳에서"
-              desc="취급 상품 8만여 종. 지금 여러 업체에서 나눠 사는 품목을 한 번에 견적 내 드리고, 반복 품목은 정기 공급으로, 대량 주문은 별도 단가로 진행합니다."
-            />
-            <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-              {services.map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="rounded-2xl bg-white p-5 ring-1 ring-line sm:p-6">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cream text-brand">
-                    <Icon className="h-6 w-6" />
-                  </span>
-                  <h3 className="mt-4 text-base font-bold sm:text-lg">{title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted sm:text-[15px]">{desc}</p>
-                </div>
-              ))}
-            </div>
-            <CtaPair />
-          </div>
-        </section>
 
         {/* Delivery */}
         <section id="delivery" className="bg-ink py-20 text-white sm:py-28">
