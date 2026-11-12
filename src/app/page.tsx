@@ -5,6 +5,7 @@ import QuoteForm from "@/components/QuoteForm";
 import Benefit from "@/components/sections/Benefit";
 import Compare from "@/components/sections/Compare";
 import ExclusiveMall from "@/components/sections/ExclusiveMall";
+import Story from "@/components/sections/Story";
 import Proposal from "@/components/sections/Proposal";
 import {
   ArrowIcon,
@@ -156,6 +157,7 @@ export default function Home() {
           </div>
         </section>
 
+        <Story />
         <Benefit />
         <ExclusiveMall />
         <Compare />
