@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CallButton from "@/components/CallButton";
+import CallButton, { CtaPair } from "@/components/CallButton";
 import {
   ArrowIcon,
   BoxIcon,
@@ -27,73 +27,39 @@ const pains = [
 ];
 
 const services = [
-  {
-    icon: BoxIcon,
-    title: "사무용품·소모품",
-    desc: "복사용지, 필기구, 파일, 잉크·토너까지 매일 쓰는 품목을 기업 전용 단가로 공급합니다.",
-  },
-  {
-    icon: ToolIcon,
-    title: "MRO·생활·안전용품",
-    desc: "화장지, 세제, 위생용품부터 산업안전용품까지. 사무실과 현장에 필요한 소모성 자재를 한 번에.",
-  },
-  {
-    icon: BuildingIcon,
-    title: "기업 전용 MRO몰",
-    desc: "우리 회사 전용 쇼핑몰을 열어 드립니다. 승인 결재, 부서별 예산, 직원 계정, 정산 내역 다운로드까지.",
-  },
-  {
-    icon: CartIcon,
-    title: "구매대행",
-    desc: "몰에 없는 상품도 요청하시면 견적 후 대신 구매해 드리고, 같은 세금계산서로 묶어 청구합니다.",
-  },
-  {
-    icon: PrintIcon,
-    title: "출력·제본·제작물",
-    desc: "직영 카피센터에서 대량 출력, 제본, 현수막·X배너, 명함·봉투를 빠르게 제작합니다.",
-  },
-  {
-    icon: GiftIcon,
-    title: "판촉물·기념품",
-    desc: "전문 판촉팀이 견적부터 시안, 제작, 배송까지. 로고를 넣은 판촉물을 대량 주문 할인가로.",
-  },
-  {
-    icon: CoffeeIcon,
-    title: "간식 정기구독",
-    desc: "탕비실 간식을 예산과 인원에 맞춰 구성하고, 주문부터 리필·진열까지 관리해 드립니다.",
-  },
-  {
-    icon: DocIcon,
-    title: "렌탈 제휴",
-    desc: "정수기·공기청정기, 사무실 커피머신, 복합기 렌탈도 사무용품과 함께 상담받을 수 있습니다.",
-  },
+  { icon: BoxIcon, title: "사무용품", desc: "필기구, 파일·바인더, 노트, 사무기기 등 매일 쓰는 기본 품목" },
+  { icon: DocIcon, title: "복사지·잉크·토너", desc: "가장 많이 사는 소모품. 사용량에 맞춘 정기 공급과 단가 협의" },
+  { icon: CoffeeIcon, title: "탕비실·생활용품", desc: "커피·음료, 생수, 간식, 화장지·세제 등 사무실 생활 소모품" },
+  { icon: ToolIcon, title: "MRO·안전 소모품", desc: "청소·위생용품, 산업안전용품 등 현장 운영에 필요한 자재" },
+  { icon: PrintIcon, title: "출력·제본·제작물", desc: "대량 출력, 제본, 현수막·X배너, 명함·봉투 제작" },
+  { icon: GiftIcon, title: "판촉물·기념품", desc: "로고를 넣은 판촉물을 견적, 시안, 제작, 배송까지 한 번에" },
+  { icon: CartIcon, title: "구매대행", desc: "목록에 없는 품목도 대신 구매해 같은 세금계산서로 청구" },
+  { icon: BuildingIcon, title: "렌탈 제휴", desc: "정수기·공기청정기, 커피머신, 복합기 렌탈 상담" },
 ];
 
 const reasons = [
-  {
-    title: "업계 1위의 구매력",
-    desc: "600여 협력사와 업계 최대 매입량을 바탕으로 자주 사는 품목에 경쟁력 있는 단가를 제안합니다.",
-  },
-  {
-    title: "직배송과 긴급 대응",
-    desc: "직배송 차량 68대와 직영점 20곳을 활용해 택배 대란에도 흔들리지 않고, 급한 물품은 가까운 매장에서 바로 보냅니다.",
-  },
-  {
-    title: "구매 관리가 쉬워집니다",
-    desc: "승인 결재, 부서별 예산, 월 1회 통합 세금계산서, 법인카드 간편결제로 총무 업무가 확 줄어듭니다.",
-  },
-  {
-    title: "담당자 1:1 관리",
-    desc: "콜센터 번호 대신 담당자 직통 번호로 연락하세요. 견적, 몰 개설, 배송·반품 문의까지 한 사람이 챙깁니다.",
-  },
+  { title: "구매 단가 절감", desc: "업계 최대 매입량과 600여 협력사를 바탕으로, 자주 사는 품목부터 지금보다 나은 단가를 제안합니다." },
+  { title: "한 곳에서 통합 구매", desc: "사무용품, 탕비용품, 소모품, 제작물까지 거래처 하나로. 업체 관리와 발주 업무가 줄어듭니다." },
+  { title: "전담 담당자 배정", desc: "콜센터가 아니라 담당자 직통 번호로 연락합니다. 견적, 발주, 배송, 반품까지 한 사람이 챙깁니다." },
+  { title: "빠른 배송", desc: "직배송 차량 68대와 직영점 20곳으로 다음 날 도착. 급한 물품은 가까운 매장에서 긴급 지원합니다." },
+  { title: "월 단위 정산·세금계산서", desc: "한 달 구매분을 묶어 월 1회 정산하고 세금계산서를 발행합니다. 법인카드 결제도 가능합니다." },
+  { title: "구매 내역·예산 관리", desc: "부서별 예산, 승인 결재, 구매 내역 조회·엑셀 다운로드로 지출을 투명하게 관리합니다." },
+  { title: "대량·정기 주문 대응", desc: "복사지, 토너, 생수처럼 반복되는 품목은 정기 공급으로, 대량 주문은 별도 단가로 진행합니다." },
+  { title: "검증된 품질 관리", desc: "3단계 검수와 ISO 9001·14001 인증 체계, 불량 시 5일 이내 교환으로 문제를 빠르게 해결합니다." },
 ];
 
 const steps = [
-  { title: "전화 상담", desc: "회사 규모와 주로 쓰는 품목을 간단히 여쭙니다." },
-  { title: "무료 비교견적", desc: "현재 구매 내역 기준으로 품목별 견적을 드립니다." },
-  { title: "거래 조건 확정", desc: "단가, 정산 방식(월 정산·카드결제)을 정합니다." },
-  { title: "계정·전용몰 개설", desc: "필요하면 승인·예산 기능을 갖춘 전용몰을 구성합니다." },
-  { title: "주문·배송·관리", desc: "익일 배송으로 받고, 이후 관리는 담당자가 이어갑니다." },
+  { title: "문의", desc: "전화로 회사와 구매 현황을 간단히 알려 주세요." },
+  { title: "품목 리스트 전달", desc: "자주 사는 품목과 월 사용량을 보내 주세요." },
+  { title: "비교 견적", desc: "현재 단가와 비교한 품목별 견적서를 드립니다." },
+  { title: "거래 시작", desc: "단가·정산 방식을 정하고 주문 계정을 엽니다." },
+  { title: "정기 공급", desc: "반복 품목은 정기 공급, 이후 관리는 담당자가." },
+];
+
+const prep = [
+  { title: "품목 리스트", desc: "자주 사는 품목명·규격 (기존 거래명세서나 엑셀이면 충분합니다)" },
+  { title: "월 사용량", desc: "품목별 대략적인 월 구매 수량 또는 월 구매 금액" },
+  { title: "배송지", desc: "배송 받을 사무실 주소와 지점 수" },
 ];
 
 const industries = ["은행·증권·보험", "전자·화학·기계", "식음료·제약·유통", "IT·게임·플랫폼", "패션·뷰티·리테일", "공공·교육 기관"];
@@ -162,16 +128,11 @@ export default function Home() {
               배송을 기업 전용 단가로, 담당자가 직접 안내해 드립니다.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <CallButton variant="white" size="lg" label="무료 비교견적 상담" />
-              <a
-                href="#services"
-                className="flex items-center justify-center gap-2 rounded-lg border border-white/50 px-6 py-4 font-bold text-white transition hover:bg-white/10"
-              >
-                서비스 살펴보기 <ArrowIcon className="h-4 w-4" />
-              </a>
+              <CallButton variant="white" size="lg" icon="doc" label="견적 의뢰하기" />
+              <CallButton variant="outline-light" size="lg" label="거래 문의하기" />
             </div>
             <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/90">
-              {["상담·견적 무료", "소규모 기업도 가능", "익일 배송", "담당자 직통 연결"].map((t) => (
+              {["비교 견적 무료", "소규모 기업도 거래 가능", "다음 날 배송", "월 정산·세금계산서"].map((t) => (
                 <li key={t} className="flex items-center gap-1.5">
                   <CheckIcon className="h-4 w-4 text-sun" /> {t}
                 </li>
@@ -259,32 +220,33 @@ export default function Home() {
         <section id="services" className="bg-paper py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHead
-              eyebrow="SERVICES"
-              title="사무실에 필요한 건 한 곳에서"
-              desc="자주 사는 소모품부터 가끔 필요한 제작물·렌탈까지, 거래처 하나로 해결하세요."
+              eyebrow="PRODUCTS & SERVICES"
+              title="사무실에 필요한 품목을 한 곳에서"
+              desc="취급 상품 8만여 종. 지금 여러 업체에서 나눠 사는 품목을 한 번에 견적 내 드립니다."
             />
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
               {services.map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="rounded-2xl bg-white p-6 ring-1 ring-line transition hover:-translate-y-0.5 hover:shadow-md">
+                <div key={title} className="rounded-2xl bg-white p-5 ring-1 ring-line sm:p-6">
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cream text-brand">
                     <Icon className="h-6 w-6" />
                   </span>
-                  <h3 className="mt-5 text-lg font-bold">{title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{desc}</p>
+                  <h3 className="mt-4 text-base font-bold sm:text-lg">{title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted sm:text-[15px]">{desc}</p>
                 </div>
               ))}
             </div>
+            <CtaPair />
           </div>
         </section>
 
         {/* Why */}
         <section className="py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <SectionHead eyebrow="WHY OFFICE DEPOT" title={<>거래처를 바꾸면<br className="sm:hidden" /> 달라지는 것들</>} />
+            <SectionHead eyebrow="WHY US" title={<>총무·구매 담당자가<br className="sm:hidden" /> 거래처를 바꾸는 이유</>} desc="비용은 줄이고, 구매 업무는 가볍게. 담당자의 시간을 아껴 드리는 거래처가 되겠습니다." />
             <div className="mt-12 grid gap-4 md:grid-cols-2">
               {reasons.map((r, i) => (
                 <div key={r.title} className="flex gap-5 rounded-2xl border border-line p-7">
-                  <span className="text-3xl font-black text-brand">0{i + 1}</span>
+                  <span className="text-3xl font-black text-brand">{String(i + 1).padStart(2, "0")}</span>
                   <div>
                     <h3 className="text-lg font-bold">{r.title}</h3>
                     <p className="mt-2 text-[15px] leading-relaxed text-muted">{r.desc}</p>
@@ -292,6 +254,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <CtaPair />
           </div>
         </section>
 
@@ -338,14 +301,14 @@ export default function Home() {
               <p className="text-xl font-black text-ink sm:text-2xl">지금 쓰는 단가, 비교만 해 보셔도 됩니다</p>
               <p className="mt-2 text-ink/75">비교견적은 무료이며, 거래를 강요하지 않습니다.</p>
             </div>
-            <CallButton size="lg" />
+            <CallButton size="lg" icon="doc" label="견적 의뢰하기" />
           </div>
         </section>
 
         {/* Process */}
         <section id="process" className="py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <SectionHead eyebrow="PROCESS" title="거래는 이렇게 시작됩니다" desc="첫 통화부터 첫 배송까지, 담당자가 함께 진행합니다." />
+            <SectionHead eyebrow="PROCESS" title="거래 절차" desc="전화 한 통에서 정기 공급까지, 담당자가 함께 진행합니다." />
             <ol className="mt-14 grid gap-4 md:grid-cols-5">
               {steps.map((s, i) => (
                 <li key={s.title} className="relative rounded-2xl bg-paper p-6 md:bg-transparent md:p-0 md:text-center">
@@ -362,6 +325,20 @@ export default function Home() {
                 </li>
               ))}
             </ol>
+            <div className="mx-auto mt-14 max-w-4xl rounded-2xl bg-cream p-6 sm:p-8">
+              <h3 className="text-lg font-black sm:text-xl">견적 받을 때 준비하면 좋은 것</h3>
+              <p className="mt-1 text-sm text-muted">없어도 괜찮습니다. 전화로 말씀해 주시면 담당자가 함께 정리해 드립니다.</p>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-3">
+                {prep.map((p, i) => (
+                  <li key={p.title} className="rounded-xl bg-white p-5">
+                    <p className="text-sm font-bold text-brand">0{i + 1}</p>
+                    <p className="mt-1 font-bold">{p.title}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-muted">{p.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <CtaPair />
           </div>
         </section>
 
@@ -394,6 +371,7 @@ export default function Home() {
                 <ArrowIcon className="h-5 w-5" />
               </span>
             </a>
+            <CtaPair />
           </div>
         </section>
 
@@ -423,10 +401,10 @@ export default function Home() {
           <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
             <p className="text-sm font-bold tracking-wide text-sun">CONTACT</p>
             <h2 className="mt-3 text-[28px] font-black leading-snug tracking-tight sm:text-4xl">
-              거래 문의는 전화 한 통이면 됩니다
+              견적 의뢰·거래 문의
             </h2>
             <p className="mt-4 text-white/85 sm:text-lg">
-              회사명과 자주 쓰는 품목만 말씀해 주세요. 맞춤 견적으로 다시 연락드립니다.
+              회사명과 자주 쓰는 품목만 말씀해 주세요. 품목별 비교 견적으로 다시 연락드립니다.
             </p>
             <a
               href={site.phoneHref}
@@ -436,9 +414,7 @@ export default function Home() {
               {site.phone}
             </a>
             <p className="mt-4 text-sm text-white/70">통화가 어려우시면 문자로 회사명과 연락처를 남겨 주세요.</p>
-            <div className="mt-10 flex justify-center">
-              <CallButton variant="white" size="lg" label="지금 전화하기" />
-            </div>
+            <CtaPair dark />
           </div>
         </section>
       </main>
@@ -446,13 +422,17 @@ export default function Home() {
 
       {/* Mobile sticky call bar */}
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-white p-3 md:hidden">
-        <a
-          href={site.phoneHref}
-          className="flex items-center justify-center gap-2 rounded-lg bg-brand py-3.5 text-base font-bold text-white"
-        >
-          <PhoneIcon className="h-5 w-5" />
-          전화로 거래 문의 {site.phone}
-        </a>
+        <div className="grid grid-cols-2 gap-2">
+          <a href={site.phoneHref} className="flex items-center justify-center gap-1.5 rounded-lg bg-brand py-3.5 text-[15px] font-bold text-white">
+            <DocIcon className="h-5 w-5" />
+            견적 의뢰
+          </a>
+          <a href={site.phoneHref} className="flex items-center justify-center gap-1.5 rounded-lg bg-ink py-3.5 text-[15px] font-bold text-white">
+            <PhoneIcon className="h-5 w-5" />
+            거래 문의
+          </a>
+        </div>
+        <p className="mt-1.5 text-center text-xs text-muted">{site.phone} 로 바로 연결됩니다</p>
       </div>
     </>
   );

@@ -2,7 +2,7 @@ import { site } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-white pb-24 md:pb-0">
+    <footer className="border-t border-line bg-white pb-28 md:pb-0">
       <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-muted sm:px-6">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>

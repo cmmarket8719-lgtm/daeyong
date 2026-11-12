@@ -77,7 +77,7 @@ export default function Header() {
             className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-brand py-3.5 font-bold text-white"
           >
             <PhoneIcon className="h-5 w-5" />
-            전화 상담 {site.phone}
+            견적·거래 문의 {site.phone}
           </a>
         </nav>
       )}
