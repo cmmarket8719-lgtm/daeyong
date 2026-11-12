@@ -12,14 +12,7 @@ export default function Footer() {
               <span className="pb-0.5 text-xs font-medium text-muted">{site.footerRole}</span>
             </div>
             <ul className="mt-5 space-y-1">
-              <li>
-                <span className="font-bold text-ink">{site.supplierName}</span>
-              </li>
               <li>{site.supplierAddress}</li>
-              <li className="pt-2">
-                운영 {site.agentName} · 대표 {site.ownerName}
-                {site.bizNumber && <> · 사업자등록번호 {site.bizNumber}</>}
-              </li>
               <li>
                 견적문의 :{" "}
                 <a href={site.phoneHref} className="font-medium text-ink">
