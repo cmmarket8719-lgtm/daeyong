@@ -14,7 +14,7 @@ export const site = {
   footerRole: "공식 세일즈에이전시",
   // 상품 공급사(본사) 정보 — 푸터에 '공급사'로 표시
   supplierName: "(주)오피스디포코리아",
-  supplierAddress: "서울시 강남구 언주로 711, 10층(논현동, 건설회관)",
+  supplierAddress: "경기도 광명시 덕안로 104번길17 M클러스터 B114호", // 푸터 주소
   brandEn: "Office Depot",
 
   // 연락처 (전화 하나만 사용, 이메일 없음)
