@@ -80,7 +80,7 @@ export default function ExclusiveMall() {
         <div className="mt-8 flex flex-col items-center gap-2 rounded-2xl border-2 border-dashed border-brand/40 px-6 py-6 text-center sm:flex-row sm:justify-center sm:gap-4">
           <span className="rounded-full bg-brand px-3 py-1 text-sm font-black text-white">구축 기간</span>
           <p className="font-bold">
-            계약 후 <span className="text-brand">약 20일 이내</span> 전용몰을 열고, 담당자가 품목·단가 등록까지 세팅해 드립니다.
+            계약 후 <span className="text-brand">약 1~2일 이내</span> 전용몰 구축 가능.
           </p>
         </div>
       </div>
