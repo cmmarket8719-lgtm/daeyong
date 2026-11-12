@@ -1,16 +1,18 @@
 import { CheckIcon } from "../icons";
 
+import BudgetControl from "./BudgetControl";
+
 const before = [
-  "각자 필요한 것을, 원하는 곳에서 구매",
-  "여러 사이트 가격 비교로 시간 소모",
-  "중복 구매·불필요한 구매 발생",
-  "부서별 예산 관리가 어려워 비용 초과",
+  "법인카드만 있으면 품목·금액 제한 없이 구매",
+  "같은 용도여도 더 비싼 제품을 골라도 모름",
+  "필요 이상으로 이것저것 추가 구매",
+  "개인 물품이 섞여도 확인하기 어려움",
 ];
 const after = [
-  "직원 1인당 월 예산 설정 (예: 15,000원)",
-  "팀별 예산 한도 안에서만 구매",
-  "누가 무엇을 샀는지 구매 내역 한눈에",
-  "승인 결재로 계획된 구매만 진행",
+  "팀별 월 예산 한도 설정 (예: 1인당 15,000원)",
+  "한도 안에서 필요한 제품만 구매",
+  "누가 무엇을 샀는지 관리자가 바로 확인",
+  "업무용 품목만 노출, 승인 후 주문",
 ];
 
 function Bars({ budget, actual, tone }: { budget: number; actual: number; tone: "bad" | "good" }) {
@@ -58,7 +60,7 @@ export default function Benefit() {
         <div className="relative mt-12 grid gap-5 lg:grid-cols-2 lg:gap-10">
           {/* Before */}
           <div className="rounded-2xl bg-white p-6 ring-1 ring-line sm:p-8">
-            <p className="inline-block rounded-full bg-ink/80 px-4 py-1.5 text-sm font-bold text-white">최저가 검색으로 각자 구매할 때</p>
+            <p className="inline-block rounded-full bg-ink/80 px-4 py-1.5 text-sm font-bold text-white">법인카드로 오픈마켓에서 각자 구매할 때</p>
             <div className="mt-6 grid gap-6 sm:grid-cols-[1fr_auto] sm:items-end">
               <ul className="space-y-3">
                 {before.map((t) => (
@@ -101,6 +103,8 @@ export default function Benefit() {
         <p className="mt-4 text-center text-xs text-muted">
           * 직원 10명, 1인당 월 15,000원 예산 기준의 이해를 돕기 위한 예시입니다. 실제 절감액은 비교 견적으로 안내드립니다.
         </p>
+
+        <BudgetControl />
 
         <div className="mt-10 flex flex-col items-center gap-3 rounded-2xl bg-ink px-6 py-8 text-center text-white sm:flex-row sm:justify-between sm:px-10 sm:text-left">
           <p className="text-xl font-black leading-snug sm:text-2xl">
