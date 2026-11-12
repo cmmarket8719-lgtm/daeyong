@@ -21,7 +21,7 @@ export default function Footer() {
                 {site.bizNumber && <> · 사업자등록번호 {site.bizNumber}</>}
               </li>
               <li>
-                상담 전화{" "}
+                견적문의 :{" "}
                 <a href={site.phoneHref} className="font-medium text-ink">
                   {site.phone}
                 </a>
