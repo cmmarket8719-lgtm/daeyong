@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { nav, site } from "@/lib/site";
 import { DocIcon, PhoneIcon } from "./icons";
@@ -10,14 +11,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="rounded bg-brand px-2 py-1 text-sm font-black tracking-tight text-white">
-            {site.brand}
-          </span>
-          <span className="text-[11px] font-medium leading-tight text-muted sm:text-xs">
-            공식
-            <br className="sm:hidden" /> 세일즈에이전트
-          </span>
+        <a href="#top" className="flex items-center" onClick={() => setOpen(false)} aria-label={`${site.brand} 홈`}>
+          <Image src={site.logo} alt={site.brand} width={713} height={119} priority className="h-7 w-auto sm:h-8" />
         </a>
 
         <nav className="hidden items-center gap-7 whitespace-nowrap xl:flex">

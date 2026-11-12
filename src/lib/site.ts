@@ -10,6 +10,11 @@ export const site = {
 
   // 브랜드
   brand: "오피스디포",
+  logo: "/brand/officedepot-logo.png", // 713x119
+  footerRole: "공식 세일즈에이전시",
+  // 상품 공급사(본사) 정보 — 푸터에 '공급사'로 표시
+  supplierName: "(주)오피스디포코리아",
+  supplierAddress: "서울시 강남구 언주로 711, 10층(논현동, 건설회관)",
   brandEn: "Office Depot",
 
   // 연락처 (전화 하나만 사용, 이메일 없음)
