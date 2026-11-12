@@ -1,7 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { sendQuote, type QuoteState } from "@/app/actions";
+import { priceBasis } from "@/lib/prices";
 import { site } from "@/lib/site";
 import { CheckIcon } from "./icons";
 
@@ -28,6 +29,17 @@ function Field({ label, required, error, children }: { label: string; required?:
 
 export default function QuoteForm() {
   const [state, formAction, pending] = useActionState(sendQuote, initialState);
+  const pricelistRef = useRef<HTMLInputElement>(null);
+
+  // "단가표 받기" 버튼(#quote-pricelist)으로 들어오면 단가표 요청을 미리 체크
+  useEffect(() => {
+    const check = () => {
+      if (window.location.hash === "#quote-pricelist" && pricelistRef.current) pricelistRef.current.checked = true;
+    };
+    check();
+    window.addEventListener("hashchange", check);
+    return () => window.removeEventListener("hashchange", check);
+  }, []);
 
   if (state.ok) {
     return (
@@ -48,6 +60,19 @@ export default function QuoteForm() {
 
   return (
     <form action={formAction} className="relative rounded-2xl bg-white p-6 text-left text-ink shadow-xl sm:p-10" noValidate>
+      <span id="quote-pricelist" className="absolute -top-4" aria-hidden />
+      <label className="mb-6 flex cursor-pointer items-center gap-3 rounded-xl border-2 border-sun bg-cream px-4 py-3">
+        <input
+          ref={pricelistRef}
+          type="checkbox"
+          name="pricelist"
+          defaultChecked={val("pricelist") === "on"}
+          className="h-5 w-5 shrink-0 accent-[var(--color-brand)]"
+        />
+        <span className="text-sm font-bold sm:text-base">
+          자주 사는 {priceBasis.fullListCount}개 품목 단가표도 받아볼게요
+        </span>
+      </label>
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="회사명" required error={e.company}>
           <input name="company" defaultValue={val("company")} className={input} autoComplete="organization" required />

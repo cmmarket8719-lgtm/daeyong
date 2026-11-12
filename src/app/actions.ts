@@ -31,6 +31,7 @@ export async function sendQuote(_prev: QuoteState, formData: FormData): Promise<
     size: clean(formData.get("size")),
     items: formData.getAll("items").map((v) => clean(v)).filter(Boolean).join(", "),
     message: clean(formData.get("message"), MAX.long),
+    pricelist: formData.get("pricelist") === "on" ? "on" : "",
   };
 
   const errors: QuoteState["errors"] = {};
@@ -49,6 +50,7 @@ export async function sendQuote(_prev: QuoteState, formData: FormData): Promise<
     ["이메일", data.email || "-"],
     ["배송지 주소", data.address || "-"],
     ["임직원 수", data.size || "-"],
+    ["70개 품목 단가표", data.pricelist ? "요청함 ✅" : "-"],
     ["관심 품목", data.items || "-"],
     ["요청사항", data.message || "-"],
   ];
@@ -80,7 +82,7 @@ export async function sendQuote(_prev: QuoteState, formData: FormData): Promise<
       from: process.env.QUOTE_FROM_EMAIL || "견적의뢰 <onboarding@resend.dev>",
       to: [to],
       reply_to: data.email || undefined,
-      subject: `[견적 의뢰] ${data.company} · ${data.name}`,
+      subject: `[견적 의뢰${data.pricelist ? " + 단가표" : ""}] ${data.company} · ${data.name}`,
       text,
       html,
     }),

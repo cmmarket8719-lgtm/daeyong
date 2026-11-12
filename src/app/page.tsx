@@ -7,6 +7,7 @@ import Benefit from "@/components/sections/Benefit";
 import Compare from "@/components/sections/Compare";
 import ExclusiveMall from "@/components/sections/ExclusiveMall";
 import Story from "@/components/sections/Story";
+import PriceSample from "@/components/sections/PriceSample";
 import { ProposalPoints } from "@/components/sections/Proposal";
 import {
   ArrowIcon,
@@ -150,6 +151,7 @@ export default function Home() {
         <Benefit />
         <ExclusiveMall />
         <Compare />
+        <PriceSample />
 
         {/* About */}
         <section id="about" className="py-20 sm:py-24">

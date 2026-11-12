@@ -31,6 +31,7 @@ export const nav = [
   { href: "#benefit", label: "도입 효과" },
   { href: "#mall", label: "전용몰" },
   { href: "#compare", label: "오픈마켓 비교" },
+  { href: "#prices", label: "대표 단가" },
   { href: "#services", label: "취급 품목" },
   { href: "#process", label: "거래 절차" },
   { href: "#clients", label: "고객사" },
