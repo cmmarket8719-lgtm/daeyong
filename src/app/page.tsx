@@ -87,15 +87,15 @@ export default function Home() {
               {site.role}
             </p>
             <h1 className="mt-6 text-[34px] font-black leading-[1.25] tracking-tight sm:text-5xl lg:text-6xl">
-              사무용품 비용,
+              기업 소모품 비용,
               <br />
               <span className="text-sun">구매 방식</span>을 바꾸면
               <br />
               줄어듭니다
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
-              업계 1위 오피스디포의 기업 전용 단가와 B2B 구매몰, 월 통합 정산까지. 지금 구매 내역과
-              비교해 얼마나 줄어드는지 숫자로 보여 드립니다.
+              식음료·생활용품부터 사무용품까지. 업계 1위 오피스디포의 기업 전용 단가와 B2B 구매몰, 월 통합
+              정산으로 지금보다 얼마나 줄어드는지 숫자로 보여 드립니다.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <CallButton kind="quote" variant="white" size="lg" label="무료 견적 의뢰하기" />

@@ -16,15 +16,15 @@ export default function Story() {
         <div className="max-w-3xl">
           <p className="text-xs font-bold tracking-[0.25em] text-white/50 sm:text-sm">OUR STORY</p>
           <h2 className="mt-4 text-[30px] font-black leading-[1.3] tracking-tight sm:text-5xl sm:leading-[1.25]">
-            사무용품 비용,
+            회사 소모품 비용,
             <br />
             왜 줄지 않을까요?
           </h2>
 
           <div className="mt-10 space-y-6 text-[16px] leading-[1.9] text-white/75 sm:text-lg">
             <p>
-              기업 총무·구매 담당자분들과 이야기하며 알게 됐습니다. 요즘 많은 회사가 사무용품을
-              <strong className="text-white"> 인터넷 오픈마켓에서 법인카드로</strong> 삽니다. 빠르고 편하니까요. 필요한 것
+              기업 총무·구매 담당자분들과 이야기하며 알게 됐습니다. 요즘 많은 회사가 커피·생수 같은 식음료와
+              화장지·세제 같은 생활용품, 사무용품까지 <strong className="text-white">인터넷 오픈마켓에서 법인카드로</strong> 삽니다. 빠르고 편하니까요. 필요한 것
               하나를 사러 들어갔다가, 이것저것 함께 담아 결제하는 일이 자연스럽게 생깁니다.
             </p>
             <p>

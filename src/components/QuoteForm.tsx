@@ -8,7 +8,7 @@ import { CheckIcon } from "./icons";
 
 const initialState: QuoteState = { ok: false, message: "" };
 
-const itemOptions = ["사무용품", "복사지·토너", "탕비실·생활용품", "MRO·소모품", "출력·제작물", "판촉물", "렌탈", "기업 전용몰"];
+const itemOptions = ["식음료·간식", "생활·위생용품", "사무용품", "복사지·토너", "MRO·안전용품", "출력·제작물", "판촉물", "렌탈", "기업 전용몰"];
 const sizeOptions = ["10명 미만", "10~49명", "50~199명", "200명 이상"];
 
 const input =

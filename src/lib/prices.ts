@@ -14,9 +14,9 @@ export type PriceItem = { code: string; category: string; name: string; spec: st
 export const samplePrices: PriceItem[] = [
   { code: "100800", category: "복사용지", name: "오피스디포 복사용지 A4 75g", spec: "500매×5권 / 박스", price: 19900, image: true },
   { code: "100810", category: "복사용지", name: "오피스디포 복사용지 A4 80g", spec: "500매×5권 / 박스", price: 20500, image: true },
-  { code: "314030", category: "사무용품", name: "포스트-잇 알뜰팩 653-9A", spec: "3M", price: 4300, image: true },
+  { code: "314030", category: "문구", name: "포스트-잇 알뜰팩 653-9A", spec: "3M", price: 4300, image: true },
   { code: "500021", category: "필기구", name: "모나미 플러스펜 3000 (흑)", spec: "12자루", price: 3600, image: true },
-  { code: "312140", category: "사무용품", name: "스카치 매직테이프 810D", spec: "18mm×30M / 3M", price: 3700 },
+  { code: "312140", category: "문구", name: "스카치 매직테이프 810D", spec: "18mm×30M / 3M", price: 3700 },
   { code: "313311", category: "포장", name: "박스테이프 (투명)", spec: "50mm×40M", price: 700, image: true },
   { code: "503341", category: "필기구", name: "보드마카 (흑색)", spec: "1자루 / FORAY", price: 350 },
   { code: "800540", category: "생활용품", name: "에너자이저 맥스 건전지 AA", spec: "12+4입 / 알카라인", price: 12380, image: true },

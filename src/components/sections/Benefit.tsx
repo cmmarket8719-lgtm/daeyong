@@ -47,7 +47,7 @@ export default function Benefit() {
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold tracking-wide text-brand">WHY B2B PURCHASING</p>
           <h2 className="mt-3 text-[26px] font-black leading-snug tracking-tight sm:text-[42px] sm:leading-tight">
-            사무용품 비용 절감,
+            소모품 비용 절감,
             <br />
             최저가 검색보다 <span className="relative whitespace-nowrap text-brand">‘구매 방식’<span aria-hidden className="absolute inset-x-0 -bottom-1 h-1.5 rounded-full bg-sun" /></span>이 먼저입니다
           </h2>

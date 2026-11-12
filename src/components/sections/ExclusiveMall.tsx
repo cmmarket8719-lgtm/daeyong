@@ -39,7 +39,7 @@ export default function ExclusiveMall() {
             <br /> <span className="text-brand">전용 B2B 쇼핑몰</span>을 만들어 드립니다
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-            많은 기업이 오피스디포 B2B몰로 사무용품을 구매합니다. 여기에 회사 로고와 우리 회사 품목, 승인·예산 규칙을 입힌
+            많은 기업이 오피스디포 B2B몰로 식음료·생활용품·사무용품을 구매합니다. 여기에 회사 로고와 우리 회사 품목, 승인·예산 규칙을 입힌
             <strong className="text-ink"> 단독 구매몰</strong>을 열어 드립니다.
           </p>
         </div>
