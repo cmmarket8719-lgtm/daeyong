@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CallButton, { CtaPair } from "@/components/CallButton";
@@ -59,7 +60,6 @@ const prep = [
   { title: "배송지", desc: "배송 받을 사무실 주소와 지점 수" },
 ];
 
-const industries = ["은행·증권·보험", "전자·화학·기계", "식음료·제약·유통", "IT·게임·플랫폼", "패션·뷰티·리테일", "공공·교육 기관"];
 
 const faqs = [
   {
@@ -335,13 +335,22 @@ export default function Home() {
               title={<>1,300여 법인이<br className="sm:hidden" /> 오피스디포와 거래합니다</>}
               desc="23년간 MRO 사업을 운영하며 대기업부터 금융사, 제조사, 스타트업까지 다양한 기업의 구매를 맡아 왔습니다."
             />
-            <ul className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3">
-              {industries.map((t) => (
-                <li key={t} className="rounded-xl bg-white px-4 py-5 text-center font-bold ring-1 ring-sun/40">
-                  {t}
-                </li>
-              ))}
-            </ul>
+            <figure className="mt-12">
+              <div className="overflow-x-auto rounded-2xl bg-white p-4 shadow-sm ring-1 ring-line sm:p-8">
+                <Image
+                  src="/brand/clients.webp"
+                  alt="오피스디포 주요 고객사: 은행, 증권, 보험, 전자·화학·기계, 식음·제약·유통 분야 기업 로고"
+                  width={982}
+                  height={459}
+                  className="h-auto w-full min-w-[760px]"
+                  sizes="(min-width: 1152px) 1088px, 100vw"
+                />
+              </div>
+              <figcaption className="mt-3 text-center text-xs text-muted">
+                * 오피스디포 전체 거래 고객사 중 일부입니다 (오피스디포 2026 B2B 제안서 기준).
+                <span className="sm:hidden"> 옆으로 밀어서 보세요.</span>
+              </figcaption>
+            </figure>
             <a
               href={site.blogUrl}
               target="_blank"
