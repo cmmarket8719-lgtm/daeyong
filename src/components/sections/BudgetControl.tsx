@@ -11,21 +11,9 @@ const months = [
 const won = (v: number) => v.toLocaleString("ko-KR");
 
 const effects = [
-  {
-    no: "01",
-    title: "비용이 한도 안에서 통제됩니다",
-    desc: "팀별로 월 예산을 정해 두면, 한도를 넘는 주문은 아예 진행되지 않습니다. 월말에 카드 명세서를 보고 놀랄 일이 없습니다.",
-  },
-  {
-    no: "02",
-    title: "비싼 제품을 고르지 않게 됩니다",
-    desc: "누가 어떤 제품을 얼마에 샀는지 관리자가 바로 봅니다. 내역이 보인다는 것만으로 같은 용도에 굳이 비싼 제품을 고르지 않게 됩니다.",
-  },
-  {
-    no: "03",
-    title: "개인 물품 구매를 막습니다",
-    desc: "업무용 품목만 노출하고 주문 내역이 모두 남기 때문에, 법인카드로 개인 물품이 섞여 결제되는 일을 구조적으로 막습니다.",
-  },
+  { no: "01", title: "비용이 한도 안에서 통제됩니다" },
+  { no: "02", title: "비싼 제품을 고르지 않게 됩니다" },
+  { no: "03", title: "개인 물품 구매를 막습니다" },
 ];
 
 function BudgetMock() {
@@ -121,19 +109,16 @@ export default function BudgetControl() {
         </p>
       </div>
 
-      <div className="mt-10 grid items-start gap-8 lg:grid-cols-[1.25fr_1fr] lg:gap-10">
+      <div className="mt-10 grid items-center gap-8 lg:grid-cols-[1.25fr_1fr] lg:gap-10">
         <figure className="min-w-0">
           <BudgetMock />
           <figcaption className="mt-3 text-center text-xs text-muted">* 팀별 월 예산 100만원 기준의 예시 화면입니다.</figcaption>
         </figure>
         <ol className="space-y-4">
           {effects.map((e) => (
-            <li key={e.no} className="flex gap-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand text-sm font-black text-white">{e.no}</span>
-              <div>
-                <p className="text-lg font-black">{e.title}</p>
-                <p className="mt-1 text-[15px] leading-relaxed text-muted">{e.desc}</p>
-              </div>
+            <li key={e.no} className="flex items-center gap-4 rounded-2xl bg-paper px-5 py-5">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand text-sm font-black text-white">{e.no}</span>
+              <p className="text-lg font-black sm:text-xl">{e.title}</p>
             </li>
           ))}
         </ol>
