@@ -26,12 +26,11 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: "#about", label: "소개" },
-  { href: "#services", label: "서비스" },
-  { href: "#delivery", label: "배송" },
-  { href: "#process", label: "진행 절차" },
+  { href: "#benefit", label: "도입 효과" },
+  { href: "#compare", label: "오픈마켓 비교" },
+  { href: "#services", label: "취급 품목" },
+  { href: "#process", label: "거래 절차" },
   { href: "#clients", label: "고객사" },
-  { href: "#contact", label: "문의" },
 ] as const;
 
 // 오피스디포 브랜드 지표 (출처: 2026 오피스디포 B2B 제안서). 수치가 바뀌면 여기만 고치면 됩니다.

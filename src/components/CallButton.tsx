@@ -5,7 +5,8 @@ type Props = {
   label?: string;
   size?: "md" | "lg";
   variant?: "brand" | "white" | "outline" | "outline-light";
-  icon?: "phone" | "doc";
+  /** "call" = 전화 연결(tel:), "quote" = 견적 의뢰 폼(#quote)으로 이동 */
+  kind?: "call" | "quote";
   showNumber?: boolean;
 };
 
@@ -16,34 +17,29 @@ const colors = {
   "outline-light": "border-2 border-white/70 text-white hover:bg-white/10",
 };
 
-export default function CallButton({
-  label = "거래 문의",
-  size = "md",
-  variant = "brand",
-  icon = "phone",
-  showNumber = true,
-}: Props) {
+export default function CallButton({ label, size = "md", variant = "brand", kind = "call", showNumber = true }: Props) {
   const sizing = size === "lg" ? "px-7 py-4 text-base" : "px-5 py-3 text-sm";
-  const Icon = icon === "doc" ? DocIcon : PhoneIcon;
+  const isQuote = kind === "quote";
+  const Icon = isQuote ? DocIcon : PhoneIcon;
 
   return (
     <a
-      href={site.phoneHref}
+      href={isQuote ? "#quote" : site.phoneHref}
       className={`inline-flex items-center justify-center gap-2 rounded-lg font-bold transition ${sizing} ${colors[variant]}`}
     >
       <Icon className="h-5 w-5" />
-      <span>{label}</span>
-      {showNumber && <span className="hidden whitespace-nowrap opacity-80 sm:inline">· {site.phone}</span>}
+      <span>{label ?? (isQuote ? "견적 의뢰하기" : "거래 문의하기")}</span>
+      {!isQuote && showNumber && <span className="hidden whitespace-nowrap opacity-80 sm:inline">· {site.phone}</span>}
     </a>
   );
 }
 
-/** 섹션 끝에 붙이는 견적 의뢰 / 거래 문의 버튼 쌍 */
-export function CtaPair({ dark = false, center = true }: { dark?: boolean; center?: boolean }) {
+/** 섹션 끝에 붙이는 견적 의뢰(폼) / 거래 문의(전화) 버튼 쌍 */
+export function CtaPair({ dark = false }: { dark?: boolean }) {
   return (
-    <div className={`mt-12 flex flex-col gap-3 sm:flex-row ${center ? "sm:justify-center" : ""}`}>
-      <CallButton label="견적 의뢰하기" icon="doc" variant={dark ? "white" : "brand"} showNumber={false} />
-      <CallButton label="거래 문의하기" variant={dark ? "outline-light" : "outline"} showNumber={false} />
+    <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:justify-center">
+      <CallButton kind="quote" variant={dark ? "white" : "brand"} />
+      <CallButton kind="call" variant={dark ? "outline-light" : "outline"} showNumber={false} />
     </div>
   );
 }

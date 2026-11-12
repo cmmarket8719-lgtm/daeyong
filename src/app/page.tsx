@@ -1,6 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CallButton, { CtaPair } from "@/components/CallButton";
+import QuoteForm from "@/components/QuoteForm";
+import Benefit from "@/components/sections/Benefit";
+import Compare from "@/components/sections/Compare";
+import Proposal from "@/components/sections/Proposal";
 import {
   ArrowIcon,
   BoxIcon,
@@ -16,15 +20,6 @@ import {
   TruckIcon,
 } from "@/components/icons";
 import { brandStats, site, statsNote } from "@/lib/site";
-
-const pains = [
-  "복사용지, 토너, 탕비용품을 매번 다른 곳에서 따로 주문한다",
-  "지금 받는 단가가 적정한지 비교해 본 적이 없다",
-  "거래처마다 세금계산서가 따로 와서 월말 정산이 번거롭다",
-  "부서마다 알아서 주문해 비용이 어디서 새는지 모른다",
-  "급하게 필요한 물품이 늦게 와서 곤란했던 적이 있다",
-  "명함·현수막·판촉물은 또 다른 업체를 찾아야 한다",
-];
 
 const services = [
   { icon: BoxIcon, title: "사무용품", desc: "필기구, 파일·바인더, 노트, 사무기기 등 매일 쓰는 기본 품목" },
@@ -49,7 +44,7 @@ const reasons = [
 ];
 
 const steps = [
-  { title: "문의", desc: "전화로 회사와 구매 현황을 간단히 알려 주세요." },
+  { title: "견적 의뢰", desc: "견적 의뢰서를 남기시거나 전화로 문의해 주세요." },
   { title: "품목 리스트 전달", desc: "자주 사는 품목과 월 사용량을 보내 주세요." },
   { title: "비교 견적", desc: "현재 단가와 비교한 품목별 견적서를 드립니다." },
   { title: "거래 시작", desc: "단가·정산 방식을 정하고 주문 계정을 엽니다." },
@@ -118,18 +113,19 @@ export default function Home() {
               {site.role}
             </p>
             <h1 className="mt-6 text-[34px] font-black leading-[1.25] tracking-tight sm:text-5xl lg:text-6xl">
-              사무실에 필요한 모든 것,
+              사무용품 비용,
               <br />
-              <span className="text-sun">거래처 하나</span>로
-              <br className="sm:hidden" /> 끝내세요
+              <span className="text-sun">구매 방식</span>을 바꾸면
+              <br />
+              줄어듭니다
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
-              사무용품부터 탕비·위생용품, 출력·판촉물, 구매대행까지. 업계 1위 오피스디포의 상품과
-              배송을 기업 전용 단가로, 담당자가 직접 안내해 드립니다.
+              업계 1위 오피스디포의 기업 전용 단가와 B2B 구매몰, 월 통합 정산까지. 지금 구매 내역과
+              비교해 얼마나 줄어드는지 숫자로 보여 드립니다.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <CallButton variant="white" size="lg" icon="doc" label="견적 의뢰하기" />
-              <CallButton variant="outline-light" size="lg" label="거래 문의하기" />
+              <CallButton kind="quote" variant="white" size="lg" label="무료 견적 의뢰하기" />
+              <CallButton kind="call" variant="outline-light" size="lg" />
             </div>
             <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/90">
               {["비교 견적 무료", "소규모 기업도 거래 가능", "다음 날 배송", "월 정산·세금계산서"].map((t) => (
@@ -159,25 +155,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pain points */}
-        <section className="bg-paper py-20 sm:py-24">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <SectionHead eyebrow="이런 고민 있으신가요?" title={<>구매 담당자라면 한 번쯤<br className="sm:hidden" /> 겪는 일입니다</>} />
-            <ul className="mx-auto mt-12 grid max-w-5xl gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-              {pains.map((p) => (
-                <li key={p} className="flex items-start gap-3 rounded-xl bg-white p-5 shadow-sm ring-1 ring-line">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cream text-sm font-black text-brand">
-                    ✓
-                  </span>
-                  <span className="text-[15px] leading-relaxed sm:text-base">{p}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-10 text-center text-lg font-bold sm:text-xl">
-              하나라도 해당된다면, <span className="text-brand">전화 한 통</span>으로 정리해 드립니다.
-            </p>
-          </div>
-        </section>
+        <Benefit />
+        <Compare />
 
         {/* About */}
         <section id="about" className="py-20 sm:py-28">
@@ -301,9 +280,11 @@ export default function Home() {
               <p className="text-xl font-black text-ink sm:text-2xl">지금 쓰는 단가, 비교만 해 보셔도 됩니다</p>
               <p className="mt-2 text-ink/75">비교견적은 무료이며, 거래를 강요하지 않습니다.</p>
             </div>
-            <CallButton size="lg" icon="doc" label="견적 의뢰하기" />
+            <CallButton kind="quote" size="lg" />
           </div>
         </section>
+
+        <Proposal />
 
         {/* Process */}
         <section id="process" className="py-20 sm:py-28">
@@ -327,7 +308,7 @@ export default function Home() {
             </ol>
             <div className="mx-auto mt-14 max-w-4xl rounded-2xl bg-cream p-6 sm:p-8">
               <h3 className="text-lg font-black sm:text-xl">견적 받을 때 준비하면 좋은 것</h3>
-              <p className="mt-1 text-sm text-muted">없어도 괜찮습니다. 전화로 말씀해 주시면 담당자가 함께 정리해 드립니다.</p>
+              <p className="mt-1 text-sm text-muted">없어도 괜찮습니다. 견적 의뢰서 요청사항에 대략 적어 주시면 담당자가 함께 정리해 드립니다.</p>
               <ul className="mt-5 grid gap-3 sm:grid-cols-3">
                 {prep.map((p, i) => (
                   <li key={p.title} className="rounded-xl bg-white p-5">
@@ -396,34 +377,44 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact */}
-        <section id="contact" className="bg-brand py-20 text-white sm:py-28">
-          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-            <p className="text-sm font-bold tracking-wide text-sun">CONTACT</p>
-            <h2 className="mt-3 text-[28px] font-black leading-snug tracking-tight sm:text-4xl">
-              견적 의뢰·거래 문의
-            </h2>
-            <p className="mt-4 text-white/85 sm:text-lg">
-              회사명과 자주 쓰는 품목만 말씀해 주세요. 품목별 비교 견적으로 다시 연락드립니다.
-            </p>
-            <a
-              href={site.phoneHref}
-              className="mt-10 inline-flex items-center gap-3 text-4xl font-black tracking-tight text-white transition hover:text-sun sm:text-6xl"
-            >
-              <PhoneIcon className="h-8 w-8 text-sun sm:h-12 sm:w-12" />
-              {site.phone}
-            </a>
-            <p className="mt-4 text-sm text-white/70">통화가 어려우시면 문자로 회사명과 연락처를 남겨 주세요.</p>
-            <CtaPair dark />
+        {/* Quote form */}
+        <section id="quote" className="bg-brand py-20 text-white sm:py-28">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
+            <div>
+              <p className="text-sm font-bold tracking-wide text-sun">FREE QUOTE</p>
+              <h2 className="mt-3 text-[28px] font-black leading-snug tracking-tight sm:text-4xl">
+                무료 견적 의뢰
+              </h2>
+              <p className="mt-4 leading-relaxed text-white/85 sm:text-lg">
+                회사 정보와 요청사항을 남겨 주시면, 현재 구매 내역과 비교한 견적서를 보내 드립니다. 견적은 무료이며
+                거래를 강요하지 않습니다.
+              </p>
+              <ul className="mt-8 space-y-3">
+                {["품목별 단가 비교 견적서", "월간·연간 예상 절감액", "우리 회사에 맞는 구매 방식 제안"].map((t) => (
+                  <li key={t} className="flex items-center gap-2 font-bold">
+                    <CheckIcon className="h-5 w-5 text-sun" /> {t}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10 rounded-2xl bg-white/10 p-6">
+                <p className="text-sm text-white/75">바로 통화하고 싶으시면</p>
+                <a href={site.phoneHref} className="mt-1 inline-flex items-center gap-2 text-2xl font-black tracking-tight hover:text-sun sm:text-3xl">
+                  <PhoneIcon className="h-6 w-6 text-sun" />
+                  {site.phone}
+                </a>
+                <p className="mt-1 text-sm text-white/70">거래 문의 · 통화가 어려우면 문자를 남겨 주세요.</p>
+              </div>
+            </div>
+            <QuoteForm />
           </div>
         </section>
       </main>
       <Footer />
 
-      {/* Mobile sticky call bar */}
+      {/* Mobile sticky bar: 견적 의뢰(폼) / 거래 문의(전화) */}
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-white p-3 md:hidden">
         <div className="grid grid-cols-2 gap-2">
-          <a href={site.phoneHref} className="flex items-center justify-center gap-1.5 rounded-lg bg-brand py-3.5 text-[15px] font-bold text-white">
+          <a href="#quote" className="flex items-center justify-center gap-1.5 rounded-lg bg-brand py-3.5 text-[15px] font-bold text-white">
             <DocIcon className="h-5 w-5" />
             견적 의뢰
           </a>
@@ -432,7 +423,7 @@ export default function Home() {
             거래 문의
           </a>
         </div>
-        <p className="mt-1.5 text-center text-xs text-muted">{site.phone} 로 바로 연결됩니다</p>
+        
       </div>
     </>
   );

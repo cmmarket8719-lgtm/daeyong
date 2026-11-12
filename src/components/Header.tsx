@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { nav, site } from "@/lib/site";
-import { PhoneIcon } from "./icons";
+import { DocIcon, PhoneIcon } from "./icons";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -20,7 +20,7 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {nav.map((n) => (
             <a
               key={n.href}
@@ -32,10 +32,17 @@ export default function Header() {
           ))}
           <a
             href={site.phoneHref}
-            className="flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-bold text-white transition hover:bg-brand-dark"
+            className="flex items-center gap-1.5 text-sm font-bold text-ink transition hover:text-brand"
           >
-            <PhoneIcon className="h-4 w-4" />
+            <PhoneIcon className="h-4 w-4 text-brand" />
             {site.phone}
+          </a>
+          <a
+            href="#quote"
+            className="flex items-center gap-1.5 rounded-full bg-brand px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-dark"
+          >
+            <DocIcon className="h-4 w-4" />
+            무료 견적 의뢰
           </a>
         </nav>
 
@@ -44,7 +51,7 @@ export default function Header() {
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded lg:hidden"
         >
           <span className="relative block h-4 w-5">
             <span
@@ -61,7 +68,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-line bg-white px-4 pb-5 md:hidden">
+        <nav className="border-t border-line bg-white px-4 pb-5 lg:hidden">
           {nav.map((n) => (
             <a
               key={n.href}
@@ -73,11 +80,19 @@ export default function Header() {
             </a>
           ))}
           <a
-            href={site.phoneHref}
+            href="#quote"
+            onClick={() => setOpen(false)}
             className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-brand py-3.5 font-bold text-white"
           >
+            <DocIcon className="h-5 w-5" />
+            무료 견적 의뢰
+          </a>
+          <a
+            href={site.phoneHref}
+            className="mt-2 flex items-center justify-center gap-2 rounded-lg border-2 border-ink py-3 font-bold text-ink"
+          >
             <PhoneIcon className="h-5 w-5" />
-            견적·거래 문의 {site.phone}
+            거래 문의 {site.phone}
           </a>
         </nav>
       )}
