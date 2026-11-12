@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     q: "주문하면 언제 받을 수 있나요?",
-    a: "서울·경기·부산 직배송 지역은 16시, 그 외 택배 지역은 12시까지 주문하면 다음 날 받으실 수 있습니다. 도서·산간 지역은 3~4일 정도 걸립니다.",
+    a: "서울·경기 직배송 지역은 15시, 그 외 택배 지역은 11시까지 주문하면 다음 날 받으실 수 있습니다. 도서·산간 지역은 3~4일 정도 걸립니다.",
   },
   {
     q: "오피스디포 공식몰에서 사는 것과 무엇이 다른가요?",
@@ -252,9 +252,9 @@ export default function Home() {
             />
             <div className="mt-12 grid gap-4 md:grid-cols-3">
               {[
-                { area: "서울·경기·부산", sub: "직배송 지역 (일부 제외)", cut: "16시", when: "다음 날 도착" },
-                { area: "그 외 전국", sub: "택배 배송", cut: "12시", when: "다음 날 도착" },
-                { area: "도서·산간", sub: "택배 배송", cut: "12시", when: "3~4일 이내" },
+                { area: "서울·경기", sub: "직배송 지역", cut: "15시", when: "다음 날 도착" },
+                { area: "그 외 전국", sub: "택배 배송", cut: "11시", when: "다음 날 도착" },
+                { area: "도서·산간", sub: "택배 배송", cut: "11시", when: "3~4일 이내" },
               ].map((d) => (
                 <div key={d.area} className="rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
                   <TruckIcon className="h-7 w-7 text-sun" />
