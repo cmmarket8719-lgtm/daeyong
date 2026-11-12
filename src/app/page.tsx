@@ -4,6 +4,7 @@ import CallButton, { CtaPair } from "@/components/CallButton";
 import QuoteForm from "@/components/QuoteForm";
 import Benefit from "@/components/sections/Benefit";
 import Compare from "@/components/sections/Compare";
+import ExclusiveMall from "@/components/sections/ExclusiveMall";
 import Proposal from "@/components/sections/Proposal";
 import {
   ArrowIcon,
@@ -156,6 +157,7 @@ export default function Home() {
         </section>
 
         <Benefit />
+        <ExclusiveMall />
         <Compare />
 
         {/* About */}

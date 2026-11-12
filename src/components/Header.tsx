@@ -20,7 +20,7 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-7 whitespace-nowrap xl:flex">
           {nav.map((n) => (
             <a
               key={n.href}
@@ -51,7 +51,7 @@ export default function Header() {
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded xl:hidden"
         >
           <span className="relative block h-4 w-5">
             <span
@@ -68,7 +68,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-line bg-white px-4 pb-5 lg:hidden">
+        <nav className="border-t border-line bg-white px-4 pb-5 xl:hidden">
           {nav.map((n) => (
             <a
               key={n.href}
