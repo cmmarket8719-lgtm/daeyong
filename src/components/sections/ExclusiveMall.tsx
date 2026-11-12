@@ -3,12 +3,12 @@ import { ArrowIcon, CheckIcon } from "../icons";
 
 // 실제 오피스디포 B2B몰 화면. 공개용으로 고객사명·담당자·주문번호·본사 연락처 영역은 흐리게 처리했습니다.
 const features = [
-  { title: "우리 회사 로고·전용 주소", desc: "로그인 화면부터 회사 로고와 배너가 들어간 전용몰로 열립니다." },
-  { title: "필요한 품목만 노출", desc: "자주 사는 품목·카테고리 위주로 구성하고, 불필요한 상품은 숨깁니다." },
-  { title: "승인 결재·부서별 예산", desc: "직원이 주문하면 관리자가 승인하고, 부서·직원별 예산 안에서만 구매합니다." },
-  { title: "직원 계정 직접 관리", desc: "직원 계정을 만들고, 퇴사·이동 시 바로 사용 중지할 수 있습니다." },
-  { title: "구매 내역·정산 엑셀", desc: "누가 무엇을 샀는지 조회하고, 정산 자료를 엑셀로 내려받습니다." },
-  { title: "월 1회 세금계산서·법인카드", desc: "한 달 구매분을 묶어 정산하고, 지사·현장은 법인카드로 결제합니다." },
+  "우리 회사 로고·전용 주소",
+  "필요한 품목만 노출",
+  "승인 결재·부서별 예산",
+  "직원 계정 직접 관리",
+  "구매 내역·정산 엑셀",
+  "월 1회 세금계산서·법인카드",
 ];
 
 
@@ -70,12 +70,9 @@ export default function ExclusiveMall() {
 
         <ul className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
-            <li key={f.title} className="flex gap-3 rounded-2xl bg-paper p-5">
-              <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-              <div>
-                <p className="font-bold">{f.title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{f.desc}</p>
-              </div>
+            <li key={f} className="flex items-center gap-3 rounded-2xl bg-paper px-5 py-4">
+              <CheckIcon className="h-5 w-5 shrink-0 text-brand" />
+              <p className="font-bold">{f}</p>
             </li>
           ))}
         </ul>
