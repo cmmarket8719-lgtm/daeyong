@@ -58,7 +58,28 @@ export const PrintIcon = ({ className }: P) => (
   </svg>
 );
 
-export const CheckIcon = ({ className }: P) => (
+export const TruckIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M1 4h13v12H1zM14 8h4l3 3v5h-7z" />
+    <circle cx="5.5" cy="18.5" r="1.8" />
+    <circle cx="17.5" cy="18.5" r="1.8" />
+  </svg>
+);
+
+export const GiftIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <rect x="3" y="8" width="18" height="4" rx="1" />
+    <path d="M5 12v9h14v-9M12 8v13M12 8S10.5 3 7.5 4.5 9 8 12 8zM12 8s1.5-5 4.5-3.5S15 8 12 8z" />
+  </svg>
+);
+
+export const CoffeeIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6zM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3v3M12 3v3" />
+  </svg>
+);
+
+export const CheckIcon =({ className }: P) => (
   <svg {...base} className={className} strokeWidth={2.4}>
     <path d="m5 12 5 5L20 7" />
   </svg>

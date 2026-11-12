@@ -1,69 +1,459 @@
-import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CallButton from "@/components/CallButton";
+import {
+  ArrowIcon,
+  BoxIcon,
+  BuildingIcon,
+  CartIcon,
+  CheckIcon,
+  CoffeeIcon,
+  DocIcon,
+  GiftIcon,
+  PhoneIcon,
+  PrintIcon,
+  ToolIcon,
+  TruckIcon,
+} from "@/components/icons";
+import { brandStats, site, statsNote } from "@/lib/site";
+
+const pains = [
+  "복사용지, 토너, 탕비용품을 매번 다른 곳에서 따로 주문한다",
+  "지금 받는 단가가 적정한지 비교해 본 적이 없다",
+  "거래처마다 세금계산서가 따로 와서 월말 정산이 번거롭다",
+  "부서마다 알아서 주문해 비용이 어디서 새는지 모른다",
+  "급하게 필요한 물품이 늦게 와서 곤란했던 적이 있다",
+  "명함·현수막·판촉물은 또 다른 업체를 찾아야 한다",
+];
+
+const services = [
+  {
+    icon: BoxIcon,
+    title: "사무용품·소모품",
+    desc: "복사용지, 필기구, 파일, 잉크·토너까지 매일 쓰는 품목을 기업 전용 단가로 공급합니다.",
+  },
+  {
+    icon: ToolIcon,
+    title: "MRO·생활·안전용품",
+    desc: "화장지, 세제, 위생용품부터 산업안전용품까지. 사무실과 현장에 필요한 소모성 자재를 한 번에.",
+  },
+  {
+    icon: BuildingIcon,
+    title: "기업 전용 MRO몰",
+    desc: "우리 회사 전용 쇼핑몰을 열어 드립니다. 승인 결재, 부서별 예산, 직원 계정, 정산 내역 다운로드까지.",
+  },
+  {
+    icon: CartIcon,
+    title: "구매대행",
+    desc: "몰에 없는 상품도 요청하시면 견적 후 대신 구매해 드리고, 같은 세금계산서로 묶어 청구합니다.",
+  },
+  {
+    icon: PrintIcon,
+    title: "출력·제본·제작물",
+    desc: "직영 카피센터에서 대량 출력, 제본, 현수막·X배너, 명함·봉투를 빠르게 제작합니다.",
+  },
+  {
+    icon: GiftIcon,
+    title: "판촉물·기념품",
+    desc: "전문 판촉팀이 견적부터 시안, 제작, 배송까지. 로고를 넣은 판촉물을 대량 주문 할인가로.",
+  },
+  {
+    icon: CoffeeIcon,
+    title: "간식 정기구독",
+    desc: "탕비실 간식을 예산과 인원에 맞춰 구성하고, 주문부터 리필·진열까지 관리해 드립니다.",
+  },
+  {
+    icon: DocIcon,
+    title: "렌탈 제휴",
+    desc: "정수기·공기청정기, 사무실 커피머신, 복합기 렌탈도 사무용품과 함께 상담받을 수 있습니다.",
+  },
+];
+
+const reasons = [
+  {
+    title: "업계 1위의 구매력",
+    desc: "600여 협력사와 업계 최대 매입량을 바탕으로 자주 사는 품목에 경쟁력 있는 단가를 제안합니다.",
+  },
+  {
+    title: "직배송과 긴급 대응",
+    desc: "직배송 차량 68대와 직영점 20곳을 활용해 택배 대란에도 흔들리지 않고, 급한 물품은 가까운 매장에서 바로 보냅니다.",
+  },
+  {
+    title: "구매 관리가 쉬워집니다",
+    desc: "승인 결재, 부서별 예산, 월 1회 통합 세금계산서, 법인카드 간편결제로 총무 업무가 확 줄어듭니다.",
+  },
+  {
+    title: "담당자 1:1 관리",
+    desc: "콜센터 번호 대신 담당자 직통 번호로 연락하세요. 견적, 몰 개설, 배송·반품 문의까지 한 사람이 챙깁니다.",
+  },
+];
+
+const steps = [
+  { title: "전화 상담", desc: "회사 규모와 주로 쓰는 품목을 간단히 여쭙니다." },
+  { title: "무료 비교견적", desc: "현재 구매 내역 기준으로 품목별 견적을 드립니다." },
+  { title: "거래 조건 확정", desc: "단가, 정산 방식(월 정산·카드결제)을 정합니다." },
+  { title: "계정·전용몰 개설", desc: "필요하면 승인·예산 기능을 갖춘 전용몰을 구성합니다." },
+  { title: "주문·배송·관리", desc: "익일 배송으로 받고, 이후 관리는 담당자가 이어갑니다." },
+];
+
+const industries = ["은행·증권·보험", "전자·화학·기계", "식음료·제약·유통", "IT·게임·플랫폼", "패션·뷰티·리테일", "공공·교육 기관"];
+
+const faqs = [
+  {
+    q: "직원이 몇 명 안 되는 작은 회사도 거래할 수 있나요?",
+    a: "가능합니다. 규모보다 꾸준히 구매하는 품목이 있는지가 중요합니다. 우선 전화 주시면 맞는 방식을 안내해 드립니다.",
+  },
+  {
+    q: "지금 거래처와 비교해 보고 결정하고 싶어요.",
+    a: "최근 구매 내역이나 자주 사는 품목 목록만 있으면 비교견적을 무료로 만들어 드립니다. 비교해 보고 결정하셔도 됩니다.",
+  },
+  {
+    q: "주문하면 언제 받을 수 있나요?",
+    a: "서울·경기·부산 직배송 지역은 16시, 그 외 택배 지역은 12시까지 주문하면 다음 날 받으실 수 있습니다. 도서·산간 지역은 3~4일 정도 걸립니다.",
+  },
+  {
+    q: "오피스디포 공식몰에서 사는 것과 무엇이 다른가요?",
+    a: "기업 고객 전용 단가, 승인·예산·계정 같은 구매 관리 기능, 월 통합 정산, 담당자 직통 응대를 받을 수 있다는 점이 다릅니다.",
+  },
+  {
+    q: "불량품이나 잘못 온 상품은 어떻게 하나요?",
+    a: "오피스디포의 A/S·반품 전담 파트에서 회수하고, 접수 후 5일 이내 정상 상품으로 교환해 드립니다.",
+  },
+  {
+    q: "공식 세일즈에이전트는 어떤 역할인가요?",
+    a: "오피스디포와 계약을 맺고 기업 고객의 거래 상담, 견적, 도입, 이후 관리를 맡습니다. 상품과 배송, 정산은 오피스디포 시스템으로 그대로 이루어집니다.",
+  },
+];
+
+function SectionHead({ eyebrow, title, desc, light }: { eyebrow: string; title: React.ReactNode; desc?: string; light?: boolean }) {
+  return (
+    <div className="mx-auto max-w-2xl text-center">
+      <p className="text-sm font-bold tracking-wide text-brand">{eyebrow}</p>
+      <h2 className="mt-3 text-[26px] font-black leading-snug tracking-tight sm:text-4xl">{title}</h2>
+      {desc && <p className={`mt-4 text-base leading-relaxed sm:text-lg ${light ? "text-white/75" : "text-muted"}`}>{desc}</p>}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <>
+      <Header />
+      <main id="top" className="flex-1">
+        {/* Hero */}
+        <section className="relative overflow-hidden bg-brand text-white">
+          <svg aria-hidden className="absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 600" fill="none">
+            <path d="M-50 120C150 160 260 260 230 380 200 500 120 560 60 640" stroke="#ffc20e" strokeOpacity=".7" />
+            <path d="M860 -20c120 60 160 140 160 240 0 120 60 200 220 290" stroke="#ffc20e" strokeOpacity=".7" />
+          </svg>
+          <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:py-32">
+            <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold text-white sm:text-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-sun" />
+              {site.role}
+            </p>
+            <h1 className="mt-6 text-[34px] font-black leading-[1.25] tracking-tight sm:text-5xl lg:text-6xl">
+              사무실에 필요한 모든 것,
+              <br />
+              <span className="text-sun">거래처 하나</span>로
+              <br className="sm:hidden" /> 끝내세요
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
+              사무용품부터 탕비·위생용품, 출력·판촉물, 구매대행까지. 업계 1위 오피스디포의 상품과
+              배송을 기업 전용 단가로, 담당자가 직접 안내해 드립니다.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <CallButton variant="white" size="lg" label="무료 비교견적 상담" />
+              <a
+                href="#services"
+                className="flex items-center justify-center gap-2 rounded-lg border border-white/50 px-6 py-4 font-bold text-white transition hover:bg-white/10"
+              >
+                서비스 살펴보기 <ArrowIcon className="h-4 w-4" />
+              </a>
+            </div>
+            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/90">
+              {["상담·견적 무료", "소규모 기업도 가능", "익일 배송", "담당자 직통 연결"].map((t) => (
+                <li key={t} className="flex items-center gap-1.5">
+                  <CheckIcon className="h-4 w-4 text-sun" /> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Stats */}
+        <section className="border-b border-line bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+            <dl className="grid grid-cols-2 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+              {brandStats.map((s) => (
+                <div key={s.label} className="flex flex-col text-center">
+                  <dt className="order-2 mt-1 text-sm text-muted">{s.label}</dt>
+                  <dd className="text-3xl font-black tracking-tight text-brand sm:text-4xl">
+                    {s.value}
+                    <span className="ml-0.5 text-base font-bold text-ink">{s.unit}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-8 text-center text-xs text-muted">{statsNote}</p>
+          </div>
+        </section>
+
+        {/* Pain points */}
+        <section className="bg-paper py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHead eyebrow="이런 고민 있으신가요?" title={<>구매 담당자라면 한 번쯤<br className="sm:hidden" /> 겪는 일입니다</>} />
+            <ul className="mx-auto mt-12 grid max-w-5xl gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+              {pains.map((p) => (
+                <li key={p} className="flex items-start gap-3 rounded-xl bg-white p-5 shadow-sm ring-1 ring-line">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cream text-sm font-black text-brand">
+                    ✓
+                  </span>
+                  <span className="text-[15px] leading-relaxed sm:text-base">{p}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-10 text-center text-lg font-bold sm:text-xl">
+              하나라도 해당된다면, <span className="text-brand">전화 한 통</span>으로 정리해 드립니다.
+            </p>
+          </div>
+        </section>
+
+        {/* About */}
+        <section id="about" className="py-20 sm:py-28">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+            <div>
+              <p className="text-sm font-bold tracking-wide text-brand">ABOUT</p>
+              <h2 className="mt-3 text-[26px] font-black leading-snug tracking-tight sm:text-4xl">
+                오피스디포의 상품·물류에
+                <br />
+                담당자의 1:1 관리를 더했습니다
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+                저희는 오피스디포와 계약을 맺은 <strong className="text-ink">공식 세일즈에이전트</strong>
+                입니다. 상품, 배송, 정산은 오피스디포 시스템으로 그대로 받으시고, 거래 상담과 견적,
+                전용몰 도입, 이후 관리는 담당자가 직접 맡습니다.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+                업계 1위 회사의 시스템은 그대로 누리면서, 작은 일 하나도 바로 전화할 수 있는 거래처가
+                되겠습니다.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {[
+                ["상품·물류", "오피스디포", "8만여 종 · 전국 배송"],
+                ["상담·견적", "전담 담당자", "직통 전화 응대"],
+                ["정산", "월 1회 통합", "세금계산서·카드결제"],
+                ["관리", "전용 MRO몰", "승인·예산·계정"],
+              ].map(([k, v, d]) => (
+                <div key={k} className="rounded-2xl bg-cream p-5 sm:p-7">
+                  <p className="text-sm font-medium text-brand">{k}</p>
+                  <p className="mt-2 text-lg font-black sm:text-xl">{v}</p>
+                  <p className="mt-1 text-sm text-muted">{d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section id="services" className="bg-paper py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHead
+              eyebrow="SERVICES"
+              title="사무실에 필요한 건 한 곳에서"
+              desc="자주 사는 소모품부터 가끔 필요한 제작물·렌탈까지, 거래처 하나로 해결하세요."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {services.map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="rounded-2xl bg-white p-6 ring-1 ring-line transition hover:-translate-y-0.5 hover:shadow-md">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cream text-brand">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-5 text-lg font-bold">{title}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why */}
+        <section className="py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHead eyebrow="WHY OFFICE DEPOT" title={<>거래처를 바꾸면<br className="sm:hidden" /> 달라지는 것들</>} />
+            <div className="mt-12 grid gap-4 md:grid-cols-2">
+              {reasons.map((r, i) => (
+                <div key={r.title} className="flex gap-5 rounded-2xl border border-line p-7">
+                  <span className="text-3xl font-black text-brand">0{i + 1}</span>
+                  <div>
+                    <h3 className="text-lg font-bold">{r.title}</h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted">{r.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Delivery */}
+        <section id="delivery" className="bg-ink py-20 text-white sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHead
+              light
+              eyebrow="DELIVERY"
+              title="오늘 주문하면 내일 도착"
+              desc="업계 최대 규모 물류센터와 자체 배송 차량으로 빠르고 정확하게 보내 드립니다."
+            />
+            <div className="mt-12 grid gap-4 md:grid-cols-3">
+              {[
+                { area: "서울·경기·부산", sub: "직배송 지역 (일부 제외)", cut: "16시", when: "다음 날 도착" },
+                { area: "그 외 전국", sub: "택배 배송", cut: "12시", when: "다음 날 도착" },
+                { area: "도서·산간", sub: "택배 배송", cut: "12시", when: "3~4일 이내" },
+              ].map((d) => (
+                <div key={d.area} className="rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
+                  <TruckIcon className="h-7 w-7 text-sun" />
+                  <h3 className="mt-4 text-xl font-bold">{d.area}</h3>
+                  <p className="text-sm text-white/60">{d.sub}</p>
+                  <p className="mt-6 text-sm text-white/70">주문 마감</p>
+                  <p className="text-3xl font-black text-sun">{d.cut}</p>
+                  <p className="mt-2 font-bold">{d.when}</p>
+                </div>
+              ))}
+            </div>
+            <ul className="mt-10 grid gap-3 text-[15px] text-white/80 sm:grid-cols-3">
+              {["출하 성공률 99.5% 이상", "급한 물품은 가까운 직영점에서 긴급 지원", "불량·오배송은 접수 후 5일 이내 교환"].map((t) => (
+                <li key={t} className="flex items-center gap-2">
+                  <CheckIcon className="h-4 w-4 shrink-0 text-sun" /> {t}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-xs text-white/45">물량 과다, 기상 악화, 명절 등 특수한 상황에서는 배송이 늦어질 수 있습니다.</p>
+          </div>
+        </section>
+
+        {/* Mid CTA */}
+        <section className="bg-sun">
+          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 py-12 text-center sm:px-6 md:flex-row md:text-left">
+            <div>
+              <p className="text-xl font-black text-ink sm:text-2xl">지금 쓰는 단가, 비교만 해 보셔도 됩니다</p>
+              <p className="mt-2 text-ink/75">비교견적은 무료이며, 거래를 강요하지 않습니다.</p>
+            </div>
+            <CallButton size="lg" />
+          </div>
+        </section>
+
+        {/* Process */}
+        <section id="process" className="py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHead eyebrow="PROCESS" title="거래는 이렇게 시작됩니다" desc="첫 통화부터 첫 배송까지, 담당자가 함께 진행합니다." />
+            <ol className="mt-14 grid gap-4 md:grid-cols-5">
+              {steps.map((s, i) => (
+                <li key={s.title} className="relative rounded-2xl bg-paper p-6 md:bg-transparent md:p-0 md:text-center">
+                  <div className="flex items-center gap-4 md:flex-col">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-lg font-black text-white md:h-14 md:w-14">
+                      {i + 1}
+                    </span>
+                    <h3 className="text-lg font-bold">{s.title}</h3>
+                  </div>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted md:px-2">{s.desc}</p>
+                  {i < steps.length - 1 && (
+                    <span aria-hidden className="absolute right-[-14%] top-7 hidden h-px w-[28%] bg-brand/30 md:block" />
+                  )}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Clients */}
+        <section id="clients" className="bg-cream py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHead
+              eyebrow="CLIENTS"
+              title={<>1,300여 법인이<br className="sm:hidden" /> 오피스디포와 거래합니다</>}
+              desc="23년간 MRO 사업을 운영하며 대기업부터 금융사, 제조사, 스타트업까지 다양한 기업의 구매를 맡아 왔습니다."
+            />
+            <ul className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3">
+              {industries.map((t) => (
+                <li key={t} className="rounded-xl bg-white px-4 py-5 text-center font-bold ring-1 ring-sun/40">
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={site.blogUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-auto mt-10 flex max-w-md items-center justify-between gap-4 rounded-2xl bg-white p-6 ring-1 ring-line transition hover:ring-brand"
+            >
+              <span>
+                <span className="block text-sm text-muted">실제 거래 사례와 상품 소식</span>
+                <span className="mt-1 block text-lg font-bold">블로그에서 더 보기</span>
+              </span>
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-white">
+                <ArrowIcon className="h-5 w-5" />
+              </span>
+            </a>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-20 sm:py-28">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6">
+            <SectionHead eyebrow="FAQ" title="자주 묻는 질문" />
+            <div className="mt-12 divide-y divide-line border-y border-line">
+              {faqs.map((f) => (
+                <details key={f.q} className="group py-5">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-base font-bold sm:text-lg">
+                    <span>
+                      <span className="mr-2 text-brand">Q.</span>
+                      {f.q}
+                    </span>
+                    <span className="mt-1 text-xl leading-none text-muted transition group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-3 pl-7 text-[15px] leading-relaxed text-muted sm:text-base">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="bg-brand py-20 text-white sm:py-28">
+          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+            <p className="text-sm font-bold tracking-wide text-sun">CONTACT</p>
+            <h2 className="mt-3 text-[28px] font-black leading-snug tracking-tight sm:text-4xl">
+              거래 문의는 전화 한 통이면 됩니다
+            </h2>
+            <p className="mt-4 text-white/85 sm:text-lg">
+              회사명과 자주 쓰는 품목만 말씀해 주세요. 맞춤 견적으로 다시 연락드립니다.
+            </p>
+            <a
+              href={site.phoneHref}
+              className="mt-10 inline-flex items-center gap-3 text-4xl font-black tracking-tight text-white transition hover:text-sun sm:text-6xl"
+            >
+              <PhoneIcon className="h-8 w-8 text-sun sm:h-12 sm:w-12" />
+              {site.phone}
+            </a>
+            <p className="mt-4 text-sm text-white/70">통화가 어려우시면 문자로 회사명과 연락처를 남겨 주세요.</p>
+            <div className="mt-10 flex justify-center">
+              <CallButton variant="white" size="lg" label="지금 전화하기" />
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+      <Footer />
+
+      {/* Mobile sticky call bar */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-white p-3 md:hidden">
+        <a
+          href={site.phoneHref}
+          className="flex items-center justify-center gap-2 rounded-lg bg-brand py-3.5 text-base font-bold text-white"
+        >
+          <PhoneIcon className="h-5 w-5" />
+          전화로 거래 문의 {site.phone}
+        </a>
+      </div>
+    </>
   );
 }

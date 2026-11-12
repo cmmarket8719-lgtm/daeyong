@@ -28,7 +28,20 @@ export const site = {
 export const nav = [
   { href: "#about", label: "소개" },
   { href: "#services", label: "서비스" },
+  { href: "#delivery", label: "배송" },
   { href: "#process", label: "진행 절차" },
-  { href: "#cases", label: "도입 사례" },
+  { href: "#clients", label: "고객사" },
   { href: "#contact", label: "문의" },
 ] as const;
+
+// 오피스디포 브랜드 지표 (출처: 2026 오피스디포 B2B 제안서). 수치가 바뀌면 여기만 고치면 됩니다.
+export const brandStats = [
+  { value: "1998", unit: "년", label: "설립" },
+  { value: "1,830", unit: "억원", label: "연 매출 · 업계 1위" },
+  { value: "1,300", unit: "여 곳", label: "거래 법인 고객" },
+  { value: "8만", unit: "여 종", label: "취급 상품" },
+  { value: "20", unit: "개", label: "직영점 (업계 최다)" },
+  { value: "68", unit: "대", label: "직배송 차량" },
+] as const;
+
+export const statsNote = "오피스디포 2026 B2B 제안서 기준 (매출은 2024년 결산)";
