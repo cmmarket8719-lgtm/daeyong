@@ -1,5 +1,6 @@
+import Image from "next/image";
 import { priceBasis, samplePrices } from "@/lib/prices";
-import { ArrowIcon, DocIcon } from "../icons";
+import { ArrowIcon, BoxIcon, DocIcon } from "../icons";
 
 const won = (v: number) => v.toLocaleString("ko-KR");
 
@@ -25,7 +26,7 @@ export default function PriceSample() {
               {priceBasis.date} 기준 · <b className="text-sun">{priceBasis.vat}</b>
             </span>
           </div>
-          <ul className="grid divide-y divide-line md:grid-cols-2 md:divide-y-0">
+          <ul className="grid grid-cols-1 divide-y divide-line md:grid-cols-2 md:divide-y-0">
             {samplePrices.map((p, i) => (
               <li
                 key={p.code}
@@ -33,9 +34,16 @@ export default function PriceSample() {
                   i % 2 === 0 ? "md:border-r md:border-line" : ""
                 } ${i >= 2 ? "md:border-t md:border-line" : ""}`}
               >
-                <div className="min-w-0">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-line sm:h-[72px] sm:w-[72px]">
+                  {p.image ? (
+                    <Image src={`/products/${p.code}.webp`} alt={p.name} width={240} height={240} className="h-full w-full object-contain p-1" />
+                  ) : (
+                    <BoxIcon className="h-7 w-7 text-brand/60" />
+                  )}
+                </div>
+                <div className="min-w-0 flex-1">
                   <span className="inline-block rounded bg-cream px-1.5 py-0.5 text-[11px] font-bold text-brand">{p.category}</span>
-                  <p className="mt-1 truncate font-bold">{p.name}</p>
+                  <p className="mt-1 font-bold leading-snug">{p.name}</p>
                   <p className="text-xs text-muted">{p.spec}</p>
                 </div>
                 <p className="shrink-0 text-right">
