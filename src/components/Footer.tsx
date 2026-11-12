@@ -31,8 +31,7 @@ export default function Footer() {
           </a>
         </div>
         <p className="mt-8 border-t border-line pt-6 text-xs leading-relaxed">
-          본 사이트는 {site.supplierName}와 세일즈에이전트 계약을 맺은 {site.agentName}이(가) 운영하는 상담 사이트입니다.
-          상품 공급과 배송은 {site.supplierName}가 담당합니다.
+          본 사이트는 {site.brand} 세일즈에이전시가 운영하는 상담 사이트입니다. 상품 공급과 배송은 {site.brand}가 담당합니다.
         </p>
       </div>
     </footer>
