@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: #db2424;
+  --color-brand-dark: #b51b1b;
+  --color-brand-soft: #fdeeee;
+  --color-ink: #1a1a1a;
+  --color-muted: #5f6368;
+  --color-line: #e8e8e8;
+  --color-paper: #f7f7f8;
+  --font-sans: var(--font-noto-kr), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  word-break: keep-all;
+}
