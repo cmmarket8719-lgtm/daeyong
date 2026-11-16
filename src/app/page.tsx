@@ -8,6 +8,7 @@ import Compare from "@/components/sections/Compare";
 import ExclusiveMall from "@/components/sections/ExclusiveMall";
 import Story from "@/components/sections/Story";
 import PriceSample from "@/components/sections/PriceSample";
+import DirectContract from "@/components/sections/DirectContract";
 import { ProposalPoints } from "@/components/sections/Proposal";
 import {
   ArrowIcon,
@@ -22,7 +23,7 @@ const steps = [
   { title: "견적 의뢰", desc: "견적 의뢰서를 남기시거나 전화로 문의해 주세요." },
   { title: "품목 리스트 전달", desc: "자주 사는 품목과 월 사용량을 보내 주세요." },
   { title: "비교 견적", desc: "현재 단가와 비교한 품목별 견적서를 드립니다." },
-  { title: "거래 시작", desc: "단가·정산 방식을 정하고 주문 계정을 엽니다." },
+  { title: "거래 시작", desc: "오피스디포 본사와 계약하고 주문 계정을 엽니다." },
   { title: "정기 공급", desc: "반복 품목은 정기 공급, 이후 관리는 담당자가." },
 ];
 
@@ -56,7 +57,7 @@ const faqs = [
   },
   {
     q: "공식 세일즈에이전시는 어떤 역할인가요?",
-    a: "오피스디포와 계약을 맺고 기업 고객의 거래 상담, 견적, 도입, 이후 관리를 맡습니다. 상품과 배송, 정산은 오피스디포 시스템으로 그대로 이루어집니다.",
+    a: "오피스디포와 계약을 맺고 기업 고객의 거래 상담, 견적, 도입, 이후 관리를 맡습니다. 거래 계약과 세금계산서 발행, 배송·반품, 전용 B2B몰은 모두 오피스디포 본사가 직접 제공합니다.",
   },
 ];
 
@@ -134,6 +135,7 @@ export default function Home() {
         <ExclusiveMall />
         <Compare />
         <PriceSample />
+        <DirectContract />
 
         {/* Delivery */}
         <section id="delivery" className="bg-ink py-20 text-white sm:py-28">
