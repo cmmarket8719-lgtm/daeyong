@@ -90,3 +90,58 @@ export const ArrowIcon = ({ className }: P) => (
     <path d="M5 12h14M13 6l6 6-6 6" />
   </svg>
 );
+
+export const ShieldIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6z" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>
+);
+
+export const ChartIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
+  </svg>
+);
+
+export const UsersIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <circle cx="9" cy="8" r="3.5" />
+    <path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5" />
+  </svg>
+);
+
+export const CardIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <rect x="2" y="5" width="20" height="14" rx="2" />
+    <path d="M2 10h20M6 15h4" />
+  </svg>
+);
+
+export const StoreIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M3 9 4.5 4h15L21 9M3 9h18v0a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0zM5 12v8h14v-8M10 20v-5h4v5" />
+  </svg>
+);
+
+export const HeadsetIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+    <rect x="2.5" y="13" width="4" height="6" rx="1.5" />
+    <rect x="17.5" y="13" width="4" height="6" rx="1.5" />
+    <path d="M20 19a3 3 0 0 1-3 3h-3" />
+  </svg>
+);
+
+export const MailIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="m3 7 9 6 9-6" />
+  </svg>
+);
+
+export const ExternalIcon = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+  </svg>
+);

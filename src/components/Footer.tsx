@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-white pb-28 md:pb-0">
+    <footer className="border-t-4 border-blue bg-white pb-28 md:pb-0">
       <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-muted sm:px-6">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
@@ -15,7 +15,9 @@ export default function Footer() {
             <ul className="mt-5 space-y-1">
               <li>{site.supplierAddress}</li>
               <li>
-                견적문의 :{" "}
+                담당 : {site.agentName}</li>
+              <li>
+                전화 :{" "}
                 <a href={site.phoneHref} className="font-medium text-ink">
                   {site.phone}
                 </a>
@@ -43,7 +45,7 @@ export default function Footer() {
           </Link>
         </div>
         <p className="mt-3 text-xs leading-relaxed">
-          본 사이트는 {site.brand} 세일즈에이전시가 운영하는 상담 사이트입니다. 거래 계약과 세금계산서 발행, 상품 공급·배송은 {site.brand} 본사가 담당합니다.
+          본 사이트는 {site.agentName}이 운영하는 기업 MRO 구매 상담 사이트입니다. 거래 계약과 세금계산서 발행, 상품 공급·배송은 ㈜오피스디포코리아가 담당합니다.
         </p>
       </div>
     </footer>

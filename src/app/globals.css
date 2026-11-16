@@ -2,21 +2,31 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1a1a1a;
+  --foreground: #121a2b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand: #e8363a;
-  --color-brand-dark: #c4252a;
+
+  /* 메인 컬러: 오피스디포 레드 + 비즈니스 블루 */
+  --color-brand: #e1251b; /* 레드: CTA·강조 숫자 */
+  --color-brand-dark: #b8170f;
   --color-brand-soft: #fdeceb;
-  --color-sun: #ffc20e;
-  --color-cream: #fff4d6;
-  --color-ink: #1a1a1a;
-  --color-muted: #5f6368;
-  --color-line: #e8e8e8;
-  --color-paper: #f7f7f8;
+  --color-blue: #1652d8; /* 블루: 섹션 포인트·링크 */
+  --color-blue-dark: #0e3aa3;
+  --color-navy: #0a1f4d; /* 다크 섹션 배경 */
+  --color-navy-2: #10295f;
+  --color-blue-soft: #edf3ff;
+
+  /* 이전 토큰 호환 (견적 폼·개인정보처리방침에서 사용) */
+  --color-sun: #8ec5ff;
+  --color-cream: #edf3ff;
+
+  --color-ink: #121a2b;
+  --color-muted: #5b6475;
+  --color-line: #e3e7ee;
+  --color-paper: #f5f7fb;
   --font-sans: var(--font-noto-kr), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
@@ -30,4 +40,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   word-break: keep-all;
+}
+
+/* 가로 스크롤 영역의 스크롤바 숨김 */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

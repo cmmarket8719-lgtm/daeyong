@@ -20,7 +20,7 @@ export default function Header() {
             <a
               key={n.href}
               href={n.href}
-              className="text-[15px] font-medium text-ink transition hover:text-brand"
+              className="text-[15px] font-medium text-ink transition hover:text-blue"
             >
               {n.label}
             </a>
@@ -29,7 +29,7 @@ export default function Header() {
             href={site.phoneHref}
             className="flex items-center gap-1.5 text-sm font-bold text-ink transition hover:text-brand"
           >
-            <PhoneIcon className="h-4 w-4 text-brand" />
+            <PhoneIcon className="h-4 w-4 text-blue" />
             {site.phone}
           </a>
           <a
@@ -37,7 +37,7 @@ export default function Header() {
             className="flex items-center gap-1.5 rounded-full bg-brand px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-dark"
           >
             <DocIcon className="h-4 w-4" />
-            무료 견적 의뢰
+            비교견적 문의
           </a>
         </nav>
 
@@ -84,10 +84,10 @@ export default function Header() {
           </a>
           <a
             href={site.phoneHref}
-            className="mt-2 flex items-center justify-center gap-2 rounded-lg border-2 border-ink py-3 font-bold text-ink"
+            className="mt-2 flex items-center justify-center gap-2 rounded-lg border-2 border-blue py-3 font-bold text-blue"
           >
             <PhoneIcon className="h-5 w-5" />
-            거래 문의 {site.phone}
+            전화 상담 {site.phone}
           </a>
         </nav>
       )}
