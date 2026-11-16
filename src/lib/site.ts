@@ -17,6 +17,7 @@ export const site = {
   // 연락처 (전화 하나만 사용, 이메일 없음)
   phone: "02-2038-9996", // 임시 번호 (이전: 010-7575-8949)
   phoneHref: "tel:0220389996",
+  email: "jykim@officedepot-b2b.co.kr", // 푸터·개인정보처리방침에 표시
 
   // 외부 링크
   blogUrl: "https://blog.naver.com/helpoffice1",

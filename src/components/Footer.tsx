@@ -20,6 +20,12 @@ export default function Footer() {
                   {site.phone}
                 </a>
               </li>
+              <li>
+                이메일 :{" "}
+                <a href={`mailto:${site.email}`} className="font-medium text-ink">
+                  {site.email}
+                </a>
+              </li>
             </ul>
           </div>
           <a

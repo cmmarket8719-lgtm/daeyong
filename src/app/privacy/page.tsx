@@ -116,6 +116,12 @@ export default function PrivacyPage() {
               {site.phone}
             </a>
           </li>
+          <li>
+            이메일:{" "}
+            <a href={`mailto:${site.email}`} className="font-medium text-ink">
+              {site.email}
+            </a>
+          </li>
         </ul>
         <p className="mt-3 text-sm">
           개인정보 침해에 대한 신고·상담은 개인정보침해신고센터(국번 없이 118), 개인정보분쟁조정위원회(1833-6972)에 문의하실 수
