@@ -8,7 +8,7 @@ export default function Stores() {
     <section id="stores" className="bg-paper py-20 sm:py-28">
       <Container>
         <SectionHead
-          eyebrow="STORES & COPY CENTER"
+          eyebrow="직영점·카피센터"
           title={
             <>
               가까운 <span className="text-brand">직영점 20곳</span>이
@@ -25,14 +25,14 @@ export default function Stores() {
             { src: "/photos/store-inside.webp", alt: "오피스디포 직영점 매장 내부" },
             { src: "/photos/store-inside2.webp", alt: "오피스디포 직영점 사무용품 진열대" },
           ].map((p) => (
-            <div key={p.src} className="relative aspect-[3/2] overflow-hidden rounded-3xl">
+            <div key={p.src} className="relative aspect-[3/2] overflow-hidden rounded-lg">
               <Image src={p.src} alt={p.alt} fill sizes="(min-width: 640px) 33vw, 100vw" className="object-cover" />
             </div>
           ))}
         </div>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
-          <div className="rounded-3xl bg-white p-6 ring-1 ring-line sm:p-8">
+          <div className="rounded-lg bg-white p-6 ring-1 ring-line sm:p-8">
             <div className="flex items-center gap-2">
               <StoreIcon className="h-6 w-6 text-blue" />
               <h3 className="text-lg font-black">직영점 현황</h3>
@@ -54,7 +54,7 @@ export default function Stores() {
             <p className="mt-5 text-xs text-muted">전국 매장 190곳 (직영 20 · 가맹 170)</p>
           </div>
 
-          <div className="rounded-3xl bg-blue p-6 text-white sm:p-8">
+          <div className="rounded-lg bg-blue p-6 text-white sm:p-8">
             <div className="flex items-center gap-2">
               <PrintIcon className="h-6 w-6 text-sun" />
               <h3 className="text-lg font-black">카피센터</h3>

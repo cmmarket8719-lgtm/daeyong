@@ -24,11 +24,11 @@ export default function CallButton({ label, size = "md", variant = "brand", kind
 
   return (
     <a
-      href={isQuote ? "#quote" : site.phoneHref}
-      className={`inline-flex items-center justify-center gap-2 rounded-lg font-bold transition ${sizing} ${colors[variant]}`}
+      href={isQuote ? "/contact" : site.phoneHref}
+      className={`inline-flex items-center justify-center gap-2 rounded-md font-bold transition ${sizing} ${colors[variant]}`}
     >
       <Icon className="h-5 w-5" />
-      <span>{label ?? (isQuote ? "견적 의뢰하기" : "거래 문의하기")}</span>
+      <span>{label ?? (isQuote ? "견적 문의하기" : "전화 상담")}</span>
       {!isQuote && showNumber && <span className="hidden whitespace-nowrap opacity-80 sm:inline">· {site.phone}</span>}
     </a>
   );

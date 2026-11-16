@@ -7,7 +7,7 @@ import { approvalFlow, features, mallBuildSteps, type Feature } from "@/lib/cont
 
 function Frame({ children, title }: { children: React.ReactNode; title: string }) {
   return (
-    <div className="overflow-hidden rounded-2xl bg-white shadow-[0_20px_50px_-20px_rgba(10,31,77,.35)] ring-1 ring-line">
+    <div className="overflow-hidden rounded-lg bg-white shadow-[0_20px_50px_-20px_rgba(10,31,77,.35)] ring-1 ring-line">
       <div className="flex items-center justify-between bg-navy px-4 py-2.5 text-xs font-bold text-white">
         <span>{title}</span>
         <span className="flex gap-1">
@@ -193,7 +193,7 @@ function PrintVisual() {
 
 function PhotoVisual({ src, alt, w, h }: { src: string; alt: string; w: number; h: number }) {
   return (
-    <div className="overflow-hidden rounded-2xl bg-white p-2 shadow-[0_20px_50px_-20px_rgba(10,31,77,.35)] ring-1 ring-line">
+    <div className="overflow-hidden rounded-lg bg-white p-2 shadow-[0_20px_50px_-20px_rgba(10,31,77,.35)] ring-1 ring-line">
       <Image src={src} alt={alt} width={w} height={h} sizes="(min-width: 1024px) 480px, 100vw" className="h-auto w-full rounded-xl" />
     </div>
   );
@@ -268,7 +268,7 @@ export default function Features() {
     <section id="mall" className="py-20 sm:py-28">
       <Container>
         <SectionHead
-          eyebrow="MRO MALL FEATURES"
+          eyebrow="주요 기능"
           title={
             <>
               사무용품 구매부터 승인·정산까지

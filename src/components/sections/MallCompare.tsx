@@ -7,7 +7,7 @@ export default function MallCompare() {
     <section className="bg-blue-soft py-20 sm:py-28">
       <Container>
         <SectionHead
-          eyebrow="OFFICIAL MALL vs MRO MALL"
+          eyebrow="공식몰과 뭐가 다른가요"
           title={
             <>
               공식몰과 기업 MRO몰은
@@ -20,7 +20,7 @@ export default function MallCompare() {
 
         <div className="mt-14 grid gap-6 lg:grid-cols-[1fr_1.15fr]">
           {/* 몰 화면 */}
-          <figure className="overflow-hidden rounded-3xl bg-white p-3 shadow-sm ring-1 ring-line">
+          <figure className="overflow-hidden rounded-lg bg-white p-3 shadow-sm ring-1 ring-line">
             <div className="flex items-center gap-1.5 px-2 pb-3">
               <span className="h-2.5 w-2.5 rounded-full bg-brand/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-blue/50" />
@@ -39,7 +39,7 @@ export default function MallCompare() {
           </figure>
 
           {/* 비교표 */}
-          <div className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-line">
+          <div className="overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-line">
             <div className="grid grid-cols-[80px_1fr_1.2fr] text-sm font-bold sm:grid-cols-[100px_1fr_1.2fr]">
               <div className="bg-paper px-4 py-4" />
               <div className="bg-paper px-4 py-4 text-muted">공식 쇼핑몰</div>
@@ -57,7 +57,7 @@ export default function MallCompare() {
 
         <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {mroBenefits.map((b) => (
-            <li key={b.n} className="rounded-2xl bg-white p-6 ring-1 ring-line">
+            <li key={b.n} className="rounded-lg bg-white p-6 ring-1 ring-line">
               <span className="text-3xl font-black text-brand">{b.n}</span>
               <h3 className="mt-2 text-lg font-black">{b.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{b.desc}</p>

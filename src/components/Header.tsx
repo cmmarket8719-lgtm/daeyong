@@ -1,93 +1,85 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { nav, site } from "@/lib/site";
-import { DocIcon, PhoneIcon } from "./icons";
+import { PhoneIcon } from "./icons";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const menu = nav.filter((n) => n.href !== "/contact");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line bg-white">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a href="#top" className="flex items-center" onClick={() => setOpen(false)} aria-label={`${site.brand} 홈`}>
-          <Image src={site.logo} alt={site.brand} width={713} height={119} priority className="h-7 w-auto sm:h-8" />
-        </a>
+        <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)} aria-label={`${site.brand} 홈`}>
+          <Image src={site.logo} alt={site.brand} width={713} height={119} preload className="h-7 w-auto sm:h-8" />
+          <span className="hidden border-l border-line pl-2.5 text-xs font-medium leading-tight text-muted sm:block">
+            기업 MRO
+            <br />
+            김대용
+          </span>
+        </Link>
 
-        <nav className="hidden items-center gap-7 whitespace-nowrap xl:flex">
-          {nav.map((n) => (
-            <a
-              key={n.href}
-              href={n.href}
-              className="text-[15px] font-medium text-ink transition hover:text-blue"
-            >
-              {n.label}
-            </a>
-          ))}
-          <a
-            href={site.phoneHref}
-            className="flex items-center gap-1.5 text-sm font-bold text-ink transition hover:text-brand"
-          >
+        <nav className="hidden items-center gap-8 lg:flex">
+          {menu.map((n) => {
+            const active = pathname.startsWith(n.href);
+            return (
+              <Link
+                key={n.href}
+                href={n.href}
+                className={`relative py-5 text-[15px] font-bold transition hover:text-blue ${active ? "text-blue" : "text-ink"}`}
+              >
+                {n.label}
+                {active && <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue" />}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="hidden items-center gap-3 lg:flex">
+          <a href={site.phoneHref} className="flex items-center gap-1.5 text-[15px] font-bold text-ink hover:text-blue">
             <PhoneIcon className="h-4 w-4 text-blue" />
             {site.phone}
           </a>
-          <a
-            href="#quote"
-            className="flex items-center gap-1.5 rounded-full bg-brand px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-dark"
-          >
-            <DocIcon className="h-4 w-4" />
-            비교견적 문의
-          </a>
-        </nav>
+          <Link href="/contact" className="rounded-md bg-brand px-4 py-2.5 text-sm font-bold text-white transition hover:bg-brand-dark">
+            견적 문의
+          </Link>
+        </div>
 
         <button
           type="button"
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded xl:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded lg:hidden"
         >
           <span className="relative block h-4 w-5">
-            <span
-              className={`absolute left-0 h-0.5 w-5 bg-ink transition ${open ? "top-2 rotate-45" : "top-0"}`}
-            />
-            <span
-              className={`absolute left-0 top-2 h-0.5 w-5 bg-ink transition ${open ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`absolute left-0 h-0.5 w-5 bg-ink transition ${open ? "top-2 -rotate-45" : "top-4"}`}
-            />
+            <span className={`absolute left-0 h-0.5 w-5 bg-ink transition ${open ? "top-2 rotate-45" : "top-0"}`} />
+            <span className={`absolute left-0 top-2 h-0.5 w-5 bg-ink transition ${open ? "opacity-0" : ""}`} />
+            <span className={`absolute left-0 h-0.5 w-5 bg-ink transition ${open ? "top-2 -rotate-45" : "top-4"}`} />
           </span>
         </button>
       </div>
 
       {open && (
-        <nav className="border-t border-line bg-white px-4 pb-5 xl:hidden">
+        <nav className="border-t border-line bg-white px-4 pb-5 lg:hidden">
           {nav.map((n) => (
-            <a
+            <Link
               key={n.href}
               href={n.href}
               onClick={() => setOpen(false)}
-              className="block border-b border-line py-4 text-base font-medium"
+              className={`block border-b border-line py-4 text-base font-bold ${pathname.startsWith(n.href) ? "text-blue" : ""}`}
             >
               {n.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#quote"
-            onClick={() => setOpen(false)}
-            className="mt-5 flex items-center justify-center gap-2 rounded-lg bg-brand py-3.5 font-bold text-white"
-          >
-            <DocIcon className="h-5 w-5" />
-            무료 견적 의뢰
-          </a>
-          <a
-            href={site.phoneHref}
-            className="mt-2 flex items-center justify-center gap-2 rounded-lg border-2 border-blue py-3 font-bold text-blue"
-          >
+          <a href={site.phoneHref} className="mt-5 flex items-center justify-center gap-2 rounded-md bg-blue py-3.5 font-bold text-white">
             <PhoneIcon className="h-5 w-5" />
-            전화 상담 {site.phone}
+            {site.phone} 전화 상담
           </a>
         </nav>
       )}

@@ -9,7 +9,7 @@ export default function About() {
     <section id="about" className="py-20 sm:py-28">
       <Container>
         <SectionHead
-          eyebrow="ABOUT OFFICE DEPOT"
+          eyebrow="회사 개요"
           title={
             <>
               사무용품 업계 1위,
@@ -21,7 +21,7 @@ export default function About() {
 
         {/* 개요 + 물류센터 사진 */}
         <div className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-          <div className="relative min-h-[260px] overflow-hidden rounded-3xl bg-navy">
+          <div className="relative min-h-[260px] overflow-hidden rounded-lg bg-navy">
             <Image
               src="/photos/logistics-center.webp"
               alt="오피스디포 물류센터 외관"
@@ -41,7 +41,7 @@ export default function About() {
           </div>
           <dl className="grid grid-cols-2 gap-3">
             {companyFacts.map((f) => (
-              <div key={f.k} className="rounded-2xl border border-line bg-white p-5">
+              <div key={f.k} className="rounded-lg border border-line bg-white p-5">
                 <dt className="text-xs font-bold text-blue">{f.k}</dt>
                 <dd className="mt-1.5 text-[15px] font-bold leading-snug sm:text-base">{f.v}</dd>
               </div>
@@ -54,7 +54,7 @@ export default function About() {
           {businessAreas.map((b, i) => (
             <div
               key={b.title}
-              className={`rounded-2xl p-6 ${i === 0 ? "bg-blue text-white" : "bg-paper"}`}
+              className={`rounded-lg p-6 ${i === 0 ? "bg-blue text-white" : "bg-paper"}`}
             >
               <p className={`text-xs font-black ${i === 0 ? "text-sun" : "text-brand"}`}>0{i + 1}</p>
               <h3 className="mt-2 text-lg font-black">{b.title}</h3>

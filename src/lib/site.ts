@@ -33,10 +33,10 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: "#about", label: "회사소개" },
-  { href: "#mall", label: "MRO몰 기능" },
-  { href: "#price", label: "비교견적" },
-  { href: "#cases", label: "도입사례" },
-  { href: "#logistics", label: "물류·배송" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/about", label: "회사소개" },
+  { href: "/mall", label: "MRO몰 기능" },
+  { href: "/products", label: "상품·배송" },
+  { href: "/price", label: "비교견적" },
+  { href: "/cases", label: "도입사례" },
+  { href: "/contact", label: "견적·상담" },
 ] as const;

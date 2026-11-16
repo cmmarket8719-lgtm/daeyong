@@ -10,7 +10,7 @@ export default function Products() {
     <section id="products" className="py-20 sm:py-28">
       <Container>
         <SectionHead
-          eyebrow="PRODUCTS"
+          eyebrow="취급 상품"
           title={
             <>
               13개 카테고리 <span className="text-brand">8만여 종</span>,
@@ -23,7 +23,7 @@ export default function Products() {
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[1.3fr_1fr]">
           {/* 카테고리별 상품 수 */}
-          <div className="rounded-3xl border border-line p-6 sm:p-8">
+          <div className="rounded-lg border border-line p-6 sm:p-8">
             <h3 className="font-black">카테고리별 취급 상품 수</h3>
             <ul className="mt-5 space-y-2">
               {categories.map((c, i) => (
@@ -43,7 +43,7 @@ export default function Products() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-3xl bg-navy p-6 text-white sm:p-8">
+            <div className="rounded-lg bg-navy p-6 text-white sm:p-8">
               <h3 className="font-black">가격이 유지되는 이유, 매입 경쟁력</h3>
               <ul className="mt-4 space-y-2.5">
                 {buyingPower.map((b) => (
@@ -53,7 +53,7 @@ export default function Products() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-3xl bg-blue-soft p-6 sm:p-8">
+            <div className="rounded-lg bg-blue-soft p-6 sm:p-8">
               <h3 className="font-black">사무용품 외에도</h3>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {extraServices.map((s) => (
@@ -68,14 +68,14 @@ export default function Products() {
 
         {/* PB · 친환경 */}
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <figure className="overflow-hidden rounded-3xl border border-line">
+          <figure className="overflow-hidden rounded-lg border border-line">
             <Image src="/photos/pb-products.webp" alt="오피스디포 PB 상품" width={808} height={293} sizes="(min-width: 768px) 560px, 100vw" className="h-auto w-full" />
             <figcaption className="border-t border-line p-5">
               <p className="font-black">오피스디포 PB 상품</p>
               <p className="mt-1 text-sm text-muted">건전지·테이프·복사용지 등 자주 쓰는 소모품을 품질 검증된 PB로 더 저렴하게.</p>
             </figcaption>
           </figure>
-          <figure className="overflow-hidden rounded-3xl border border-line">
+          <figure className="overflow-hidden rounded-lg border border-line">
             <Image src="/photos/eco.webp" alt="환경부 인증 친환경 상품" width={1012} height={295} sizes="(min-width: 768px) 560px, 100vw" className="h-auto w-full" />
             <figcaption className="border-t border-line p-5">
               <p className="font-black">친환경 상품 취급</p>
@@ -85,7 +85,7 @@ export default function Products() {
         </div>
 
         {/* 웰컴키트 */}
-        <div className="mt-6 rounded-3xl bg-gradient-to-r from-brand to-[#ef4a3f] p-6 text-white sm:p-8">
+        <div className="mt-6 rounded-lg bg-brand p-6 text-white sm:p-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
             <div className="lg:w-72">
               <GiftIcon className="h-8 w-8" />
@@ -94,7 +94,7 @@ export default function Products() {
             </div>
             <ul className="grid flex-1 grid-cols-2 gap-2 sm:grid-cols-5">
               {welcomeKits.map((k) => (
-                <li key={k.name} className="rounded-2xl bg-white/12 p-4 ring-1 ring-white/25">
+                <li key={k.name} className="rounded-lg bg-white/12 p-4 ring-1 ring-white/25">
                   <p className="text-xs font-bold text-white/80">{k.name}</p>
                   <p className="mt-1 text-lg font-black">{k.price}</p>
                   <p className="mt-1 text-xs text-white/80">{k.desc}</p>

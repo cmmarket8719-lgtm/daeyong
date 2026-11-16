@@ -9,7 +9,7 @@ export default function Cases() {
     <section id="cases" className="bg-paper py-20 sm:py-28">
       <Container>
         <SectionHead
-          eyebrow="CASE STUDIES"
+          eyebrow="도입 사례"
           title={
             <>
               이런 회사들이
@@ -21,15 +21,15 @@ export default function Cases() {
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {cases.map((c) => (
-            <article key={c.region + c.industry} className="flex flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-line">
-              <header className="flex items-start justify-between gap-3 border-b border-line bg-gradient-to-br from-blue to-blue-dark p-6 text-white">
+            <article key={c.region + c.industry} className="flex flex-col overflow-hidden rounded-lg bg-white ring-1 ring-line">
+              <header className="flex items-start justify-between gap-3 border-b border-line border-t-4 border-t-blue p-6">
                 <div>
-                  <p className="text-xs font-bold text-sun">{c.region}</p>
-                  <h3 className="mt-1 text-lg font-black">{c.industry}</h3>
-                  <p className="mt-0.5 text-sm text-white/75">{c.size}</p>
+                  <p className="text-sm font-bold text-blue">{c.region}</p>
+                  <h3 className="mt-0.5 text-lg font-black">{c.industry}</h3>
+                  <p className="mt-0.5 text-sm text-muted">{c.size}</p>
                 </div>
                 {c.highlight && (
-                  <span className="shrink-0 rounded-full bg-brand px-3 py-1 text-sm font-black shadow">{c.highlight}</span>
+                  <span className="shrink-0 font-pen text-[24px] leading-none text-brand">{c.highlight}</span>
                 )}
               </header>
               <div className="flex flex-1 flex-col p-6">
@@ -69,7 +69,7 @@ export default function Cases() {
             은행·증권·보험부터 제조·유통까지, <span className="text-brand">1,300여 법인</span>이 거래합니다
           </h3>
           <figure className="mt-8">
-            <div className="no-scrollbar overflow-x-auto rounded-3xl bg-white p-4 ring-1 ring-line sm:p-8">
+            <div className="no-scrollbar overflow-x-auto rounded-lg bg-white p-4 ring-1 ring-line sm:p-8">
               <Image
                 src="/brand/clients.webp"
                 alt="오피스디포 주요 고객사: 은행, 증권, 보험, 전자·화학·기계, 식음·제약·유통 분야 기업 로고"

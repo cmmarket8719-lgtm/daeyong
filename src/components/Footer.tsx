@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { nav, site } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -39,8 +39,13 @@ export default function Footer() {
             네이버 블로그
           </a>
         </div>
-        <div className="mt-8 border-t border-line pt-6">
-          <Link href="/privacy" className="text-xs font-bold text-ink hover:text-brand">
+        <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-line pt-6 text-xs font-bold text-ink">
+          {nav.map((n) => (
+            <Link key={n.href} href={n.href} className="hover:text-blue">
+              {n.label}
+            </Link>
+          ))}
+          <Link href="/privacy" className="hover:text-blue">
             개인정보처리방침
           </Link>
         </div>

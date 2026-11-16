@@ -1,4 +1,4 @@
-import { Container, SectionHead, won } from "@/components/ui";
+import { Container, Note, SectionHead, won } from "@/components/ui";
 import CallButton from "@/components/CallButton";
 import { priceCompare, quoteSteps } from "@/lib/content";
 
@@ -10,7 +10,7 @@ export default function PriceCompare() {
       <Container>
         <SectionHead
           dark
-          eyebrow="PRICE COMPARISON"
+          eyebrow="단가 비교"
           title={
             <>
               “온라인이 더 싸지 않나요?”
@@ -21,9 +21,12 @@ export default function PriceCompare() {
           desc="배송비, 묶음 단위, 규격까지 맞춰서 비교해야 정확합니다. 실제 제안 견적의 일부를 공개합니다."
         />
 
-        <div className="mt-14 overflow-hidden rounded-3xl bg-white text-ink">
+        <div className="mt-14 overflow-hidden rounded-lg bg-white text-ink">
           <div className="flex flex-col gap-1 border-b border-line px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-8">
-            <h3 className="text-lg font-black sm:text-xl">{priceCompare.title}</h3>
+            <div>
+              <h3 className="text-lg font-black sm:text-xl">{priceCompare.title}</h3>
+              <Note className="mt-1 block">실제로 드린 견적서에서 그대로 옮겼어요</Note>
+            </div>
             <p className="text-xs text-muted">{priceCompare.basis}</p>
           </div>
 
@@ -102,7 +105,7 @@ export default function PriceCompare() {
           <h3 className="text-center text-xl font-black sm:text-2xl">비교견적은 이렇게 진행합니다</h3>
           <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {quoteSteps.map((s, i) => (
-              <li key={s.title} className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+              <li key={s.title} className="rounded-lg bg-white/5 p-6 ring-1 ring-white/10">
                 <span className="text-sm font-black text-sun">STEP {i + 1}</span>
                 <p className="mt-2 text-lg font-bold">{s.title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-white/70">{s.desc}</p>
