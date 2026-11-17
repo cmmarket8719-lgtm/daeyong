@@ -66,7 +66,7 @@ export default function Cases() {
         {/* 고객사 로고 */}
         <div id="clients" className="mt-20">
           <h3 className="text-center text-xl font-black sm:text-2xl">
-            은행·증권·보험부터 제조·유통까지, <span className="text-brand">1,300여 법인</span>이 거래합니다
+            은행·증권·보험부터 제조·유통까지, <span className="text-brand">5,000곳 이상</span> 기업이 이용합니다
           </h3>
           <figure className="mt-8">
             <div className="no-scrollbar overflow-x-auto rounded-lg bg-white p-4 ring-1 ring-line sm:p-8">

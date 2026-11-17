@@ -13,7 +13,7 @@ export default function Products() {
           eyebrow="취급 상품"
           title={
             <>
-              13개 카테고리 <span className="text-brand">8만여 종</span>,
+              약 <span className="text-brand">8만여 종</span>,
               <br />
               필요한 건 다 있습니다
             </>

@@ -16,7 +16,7 @@ export default function About() {
               <br className="sm:hidden" /> <span className="text-blue">오피스디포</span>입니다
             </>
           }
-          desc="법인사업·직영사업·가맹사업·플랫폼운영 4개 사업을 함께 운영하며, 25년간 1,300여 법인의 구매를 맡아 왔습니다."
+          desc="법인사업·직영사업·가맹사업·플랫폼운영 4개 사업을 함께 운영합니다. 2002년 MRO 사이트를 연 뒤로 5,000곳이 넘는 기업이 B2B몰을 이용하고 있습니다."
         />
 
         {/* 개요 + 물류센터 사진 */}
@@ -118,7 +118,7 @@ export default function About() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-3 text-xs text-muted">{finance.note} · 2024년 매출 1,830억원 (업계 1위)</p>
+              <p className="mt-3 text-xs text-muted">{finance.note} · 2024년 매출 약 1,830여억 원 (업계 1위)</p>
             </div>
           </div>
         </div>

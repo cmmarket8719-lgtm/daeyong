@@ -11,7 +11,7 @@ export default function Stores() {
           eyebrow="직영점·카피센터"
           title={
             <>
-              가까운 <span className="text-brand">직영점 20곳</span>이
+              가까운 <span className="text-brand">직영점 22곳</span>이
               <br />
               우리 회사의 비품실이 됩니다
             </>
@@ -51,7 +51,7 @@ export default function Stores() {
                 </div>
               ))}
             </div>
-            <p className="mt-5 text-xs text-muted">전국 매장 190곳 (직영 20 · 가맹 170)</p>
+            <p className="mt-5 text-xs text-muted">전국 매장 188곳 (직영 22 · 가맹 166, 2024년 2월 기준) · 목록은 주요 직영점</p>
           </div>
 
           <div className="rounded-lg bg-blue p-6 text-white sm:p-8">

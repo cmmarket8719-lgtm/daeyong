@@ -3,13 +3,13 @@
 //       김대용 네이버 블로그(blog.naver.com/dyoffice82). 수치가 바뀌면 이 파일만 고치면 됩니다.
 
 export const heroStats = [
-  { value: "1,830", unit: "억원", label: "연 매출 · 업계 1위" },
-  { value: "1,300", unit: "여 곳", label: "거래 법인 고객" },
-  { value: "8만", unit: "여 종", label: "취급 상품" },
-  { value: "99.5", unit: "%", label: "출하 성공률" },
+  { value: "약 1,830", unit: "여억 원", label: "연 매출 · 업계 1위" },
+  { value: "5,000", unit: "곳 이상", label: "B2B몰 이용 기업" },
+  { value: "약 8만", unit: "여 종", label: "취급 상품" },
+  { value: "약 99.5", unit: "%", label: "출하 성공률" },
 ] as const;
 
-export const statsNote = "2026 오피스디포 B2B 회사소개서 기준 (매출은 2024년 결산)";
+export const statsNote = "B2B 이용 기업 수는 오피스디포 공식 홈페이지, ‘약’이 붙은 수치는 2026 회사소개서 기준";
 
 /* ───────── 회사 소개 ───────── */
 
@@ -17,15 +17,15 @@ export const companyFacts = [
   { k: "회사명", v: "㈜오피스디포코리아" },
   { k: "설립", v: "1998년" },
   { k: "본사", v: "서울 강남구 언주로 711 건설회관" },
-  { k: "매출액", v: "1,830억원 (2024년 결산)" },
-  { k: "전국 매장", v: "190개 (직영 20 · 가맹 170)" },
-  { k: "법인 고객", v: "약 1,300개 · MRO 운영 25년" },
+  { k: "매출액", v: "약 1,830여억 원 (2024년 결산)" },
+  { k: "전국 매장", v: "188개 (직영 22 · 가맹 166, 2024년 2월)" },
+  { k: "B2B 고객", v: "5,000곳 이상 · MRO 운영 24년 (2002년~)" },
 ] as const;
 
 export const businessAreas = [
   { title: "법인사업", desc: "기업 전용몰 구축과 전담 영업사원 배정. 소모품·판촉물·구매대행까지 토탈 구매 솔루션." },
-  { title: "직영사업", desc: "서울·경기·부산 업계 최다 20개 직영점. 긴급 배송과 카피센터 서비스의 거점." },
-  { title: "가맹사업", desc: "전국 가맹점 네트워크와 사무용품 도매(홀세일) 비즈니스 운영." },
+  { title: "직영사업", desc: "서울·경기·부산 업계 최다 22개 직영점. 긴급 배송과 카피센터 서비스의 거점." },
+  { title: "가맹사업", desc: "전국 166개 가맹점 네트워크와 사무용품 도매(홀세일) 비즈니스 운영." },
   { title: "플랫폼운영", desc: "B2C·모바일 쇼핑몰과 쿠팡·11번가 등 오픈마켓 운영." },
 ] as const;
 
@@ -281,7 +281,7 @@ export const extraServices = ["제작물", "판촉물", "사무용 가구", "꽃
 
 export const buyingPower = [
   "문구·사무용품 업계 최고 매입량",
-  "600여 개 협력사, 주요 상품은 제조사 직거래",
+  "약 600여 개 협력사, 주요 상품은 제조사 직거래",
   "대금 100% 현금 결제 · 지급일 100% 준수",
   "단종 감지 시 재고를 먼저 확보해 가격 유지",
 ] as const;
@@ -297,18 +297,18 @@ export const welcomeKits = [
 /* ───────── 물류·배송 ───────── */
 
 export const logisticsStats = [
-  { value: "3,915", unit: "평", label: "물류센터 규모" },
-  { value: "68", unit: "대", label: "자체 배송 차량" },
-  { value: "200", unit: "억원+", label: "상시 보유 재고" },
-  { value: "0.1", unit: "% 이하", label: "오출하율" },
-  { value: "99.53", unit: "%", label: "출하 성공률" },
-  { value: "30", unit: "만 라인", label: "월평균 발주" },
+  { value: "약 3,900", unit: "여 평", label: "물류센터 규모" },
+  { value: "약 60", unit: "여 대", label: "자체 배송 차량" },
+  { value: "약 200", unit: "여억 원", label: "상시 보유 재고" },
+  { value: "약 0.1", unit: "% 이하", label: "오출하율" },
+  { value: "약 99.5", unit: "%", label: "출하 성공률" },
+  { value: "약 30만", unit: "여 라인", label: "월평균 발주" },
 ] as const;
 
 export const automation = [
   { name: "DPS", full: "Digital Picking System", desc: "매대 번호에 피킹 위치·수량을 표시해 작업 오류 방지" },
   { name: "WMS", full: "Warehouse Management System", desc: "실시간 전산 재고 조회, 6개월 판매 예측으로 2개월분 재고 보유" },
-  { name: "메자닌 랙", full: "Mezzanine Rack", desc: "재고 확보 최적화 매대로 200억 원 이상 재고 보관" },
+  { name: "메자닌 랙", full: "Mezzanine Rack", desc: "재고 확보 최적화 매대로 약 200여억 원어치 재고 보관" },
   { name: "오토 컨베이어", full: "Auto Conveyor", desc: "피킹·패킹 시간을 줄여 당일 출고 처리 속도 향상" },
 ] as const;
 
@@ -335,7 +335,7 @@ export const qualitySteps = [
 
 export const qualityItems = [
   { title: "납품업체 관리", desc: "불량 납품 시 1차 서면경고 → 2차 패널티 → 3차 계약 해지" },
-  { title: "외부 업체 감사", desc: "제조사 20곳 대상 품질·환경·법률 준수 감사" },
+  { title: "외부 업체 감사", desc: "약 20여 곳 제조사 대상 품질·환경·법률 준수 감사" },
   { title: "ISO 9001 · 14001", desc: "품질·환경 경영시스템 인증 보유" },
   { title: "유통기한 관리", desc: "커피·차, 잉크·토너는 입고와 출하 때 유효기간 확인" },
   { title: "파손 방지 포장", desc: "6종 규격 박스, 에어쿠션 랩핑과 에어백 완충재 보강" },

@@ -28,7 +28,7 @@ const strengths = [
     no: "03",
     title: "오늘 주문, 내일 도착",
     body: "서울·경기·부산은 오피스디포 배송 기사님이 직접 갖다 드립니다. 그 외 지역은 CJ대한통운으로 나가고, 배송비는 받지 않아요.",
-    figure: "68대",
+    figure: "약 60여 대",
     figureNote: "자체 배송 차량",
     href: "/products#delivery",
     link: "상품·배송 보기",
@@ -99,16 +99,16 @@ export default function Home() {
         <div className="border-t border-line bg-paper">
           <ul className="mx-auto flex max-w-6xl flex-wrap gap-x-10 gap-y-2 px-4 py-5 text-[15px] sm:px-6">
             <li>
-              사무용품 업계 매출 <b className="text-ink">1위</b> <span className="text-muted">(2024년 1,830억원)</span>
+              사무용품 업계 매출 <b className="text-ink">1위</b> <span className="text-muted">(2024년 약 1,830여억 원)</span>
             </li>
             <li>
-              거래 법인 <b className="text-ink">1,300여 곳</b>
+              B2B몰 이용 기업 <b className="text-ink">5,000곳 이상</b>
             </li>
             <li>
-              MRO 운영 <b className="text-ink">25년</b>
+              MRO 운영 <b className="text-ink">24년</b> <span className="text-muted">(2002년~)</span>
             </li>
             <li>
-              취급 상품 <b className="text-ink">8만여 종</b>
+              취급 상품 <b className="text-ink">약 8만여 종</b>
             </li>
           </ul>
         </div>

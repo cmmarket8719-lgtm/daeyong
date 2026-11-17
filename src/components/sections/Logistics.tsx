@@ -25,7 +25,7 @@ export default function Logistics() {
           </div>
           <div className="relative aspect-[16/10] overflow-hidden rounded-lg">
             <Image src="/photos/fleet.webp" alt="오피스디포 배송 차량" fill sizes="(min-width: 640px) 33vw, 100vw" className="object-cover" />
-            <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-navy">자체 배송 차량 68대</span>
+            <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-navy">자체 배송 차량 약 60여 대</span>
           </div>
           <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-white">
             <Image src="/photos/truck.webp" alt="오피스디포 배송 트럭" fill sizes="(min-width: 640px) 33vw, 100vw" className="object-contain p-4" />
@@ -80,7 +80,7 @@ export default function Logistics() {
           </div>
           <div className="rounded-lg bg-brand p-7 text-white">
             <h3 className="text-xl font-black">급할 땐, 긴급 배송</h3>
-            <p className="mt-2 text-sm text-white/85">본사·직영점 20곳·가맹점 170곳의 인력과 차량을 활용해 적극 대응합니다.</p>
+            <p className="mt-2 text-sm text-white/85">본사와 직영점 22곳·가맹점 166곳의 인력과 차량을 활용해 적극 대응합니다.</p>
             <ul className="mt-5 space-y-2.5">
               {emergency.map((e) => (
                 <li key={e} className="flex items-center gap-2 font-bold">
