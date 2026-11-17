@@ -15,12 +15,16 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)} aria-label={`${site.brand} 홈`}>
-          <Image src={site.logo} alt={site.brand} width={713} height={119} preload className="h-7 w-auto sm:h-8" />
-          <span className="hidden border-l border-line pl-2.5 text-xs font-medium leading-tight text-muted sm:block">
-            기업 MRO
-            <br />
-            김대용
+        <Link href="/" className="flex shrink-0 items-center gap-2 sm:gap-3" onClick={() => setOpen(false)} aria-label={`${site.brand} 기업 MRO 구매상담 홈`}>
+          <Image src={site.logo} alt={site.brand} width={713} height={119} preload className="h-6 w-auto sm:h-8" />
+          {/* 모바일: 좁은 화면용 두 줄 */}
+          <span className="flex flex-col border-l-2 border-blue pl-2 text-[12px] font-black leading-tight tracking-tight text-navy sm:hidden">
+            <span>기업 MRO</span>
+            <span>구매상담 전문</span>
+          </span>
+          <span className="hidden flex-col border-l-2 border-blue pl-2.5 leading-tight sm:flex">
+            <span className="text-[11px] font-bold text-blue">담당 {site.managerName}</span>
+            <span className="text-[15px] font-black tracking-tight text-navy">기업 MRO 구매상담 전문</span>
           </span>
         </Link>
 
