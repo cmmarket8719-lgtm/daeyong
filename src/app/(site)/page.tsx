@@ -45,47 +45,53 @@ export default function Home() {
     <>
       {/* 첫 화면 */}
       <section className="border-b border-line bg-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1fr_1.05fr] lg:py-20">
-          <div>
-            <p className="text-[15px] font-bold text-blue">오피스디포 기업 MRO 담당 김대용</p>
-            <h1 className="mt-4 text-[34px] font-black leading-[1.28] tracking-tight sm:text-[46px]">
+        {/* 물류창고 사진을 화면 가득, 그 위에 문구와 견적 버튼 */}
+        <div className="relative isolate flex min-h-[600px] items-center overflow-hidden bg-navy sm:min-h-[640px] lg:min-h-[calc(100svh-64px-62px)]">
+          <Image
+            src="/photos/warehouse.webp"
+            alt="오피스디포 물류센터 내부. 랙마다 상품이 쌓여 있다"
+            fill
+            preload
+            sizes="100vw"
+            className="-z-10 object-cover object-[70%_center]"
+          />
+          {/* 글씨가 읽히도록 왼쪽만 어둡게 */}
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/90 via-navy/65 to-navy/10" />
+
+          <div className="mx-auto w-full max-w-6xl px-4 py-14 text-white sm:px-6">
+            <p className="text-[15px] font-bold text-sun">오피스디포 기업 MRO 담당 김대용</p>
+            <h1 className="mt-4 text-[36px] font-black leading-[1.25] tracking-tight sm:text-[52px] lg:text-[60px]">
               회사에서 쓰는 소모품,
               <br />
-              <span className="text-brand">한 곳에서</span> 싸고 편하게
+              <span className="text-[#ff5a4f]">한 곳에서</span> 싸고 편하게
             </h1>
-            <p className="mt-5 text-[17px] leading-relaxed text-muted">
+            <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-white/85 sm:text-lg">
               복사용지, 탕비실 커피, 화장지부터 현장 공구까지. 지금 사시는 품목 그대로 단가를 비교해 드리고, 회사 전용
               구매몰도 무료로 열어 드립니다.
             </p>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <Link href="/contact" className="flex items-center justify-center gap-2 rounded-md bg-brand px-6 py-4 text-lg font-bold text-white transition hover:bg-brand-dark">
+            <div className="mt-9 flex max-w-xl flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="flex flex-1 items-center justify-center gap-2 rounded-md bg-brand px-7 py-[18px] text-lg font-bold text-white shadow-lg shadow-black/30 transition hover:bg-brand-dark"
+              >
                 <DocIcon className="h-5 w-5" />
                 무료 견적 받기
               </Link>
-              <a href={site.phoneHref} className="flex items-center justify-center gap-2 rounded-md border-2 border-blue px-6 py-4 text-lg font-bold text-blue transition hover:bg-blue-soft">
+              <a
+                href={site.phoneHref}
+                className="flex flex-1 items-center justify-center gap-2 rounded-md bg-white px-7 py-[18px] text-lg font-bold text-blue shadow-lg shadow-black/30 transition hover:bg-blue-soft"
+              >
                 <PhoneIcon className="h-5 w-5" />
                 {site.phone}
               </a>
             </div>
-            <p className="mt-3 text-sm text-muted">통화가 어려우시면 문자 남겨 주세요. 확인하는 대로 연락드립니다.</p>
+            <p className="mt-3 text-sm text-white/70">통화가 어려우시면 문자 남겨 주세요. 확인하는 대로 연락드립니다.</p>
           </div>
 
-          <figure className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-              <Image
-                src="/photos/warehouse.webp"
-                alt="오피스디포 물류센터 내부. 랙마다 상품이 쌓여 있다"
-                fill
-                preload
-                sizes="(min-width: 1024px) 560px, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <figcaption className="absolute -bottom-5 left-4 rotate-[-2deg] rounded bg-white px-4 py-2 shadow-md sm:left-6">
-              <Note>주문하신 물건은 여기서 출발해요</Note>
-            </figcaption>
-          </figure>
+          <p className="absolute bottom-6 right-4 hidden rotate-[-3deg] rounded bg-white px-4 py-2 shadow-md sm:right-8 md:block">
+            <Note>주문하신 물건은 여기서 출발해요</Note>
+          </p>
         </div>
 
         {/* 신뢰 지표: 한 줄로 */}
