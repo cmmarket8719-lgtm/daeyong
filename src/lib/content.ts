@@ -163,17 +163,17 @@ export const mallBuildSteps = ["상담 & 컨설팅", "시스템 구축", "쇼핑
 
 export const priceCompare = {
   title: "일반 쇼핑몰 구매가 vs 오피스디포 MRO 제안가",
-  basis: "2026년 10월 실제 제안 견적 · VAT·배송비 포함 · 동일 상품·구매단위 기준",
+  basis: "2026년 10월 실제 제안 견적 · VAT·배송비 포함 · 같은 규격·구매단위 기준",
   note: "품목별 비교이며 전체 구매금액의 절감률을 보장하는 수치가 아닙니다. 할인율은 품목과 구매량에 따라 다릅니다.",
   rows: [
-    { cat: "복사용지", name: "Mr.Copy A4 75g", unit: "2,500매", now: 30000, mro: 19800 },
-    { cat: "복사용지", name: "Mr.Copy A4 80g", unit: "2,500매", now: 31000, mro: 21800 },
-    { cat: "생수", name: "풀무원 무라벨 330mL", unit: "20병", now: 10300, mro: 4900 },
-    { cat: "종이컵", name: "무지 6.5oz", unit: "1,000개", now: 14500, mro: 9900 },
-    { cat: "건전지", name: "ATIVA AA·AAA", unit: "각 2개", now: 940, mro: 640 },
-    { cat: "화장지", name: "모나리자 3겹 30m", unit: "30롤", now: 16500, mro: 11900 },
-    { cat: "화장지", name: "나무야나무야 3겹 25m", unit: "30롤", now: 16200, mro: 13900 },
-    { cat: "물티슈", name: "후레시아 캡형", unit: "100매", now: 1000, mro: 890 },
+    { cat: "복사용지", name: "오피스디포 PB 복사용지 A4 75g", unit: "2,500매", now: 30000, mro: 19800 },
+    { cat: "복사용지", name: "오피스디포 PB 복사용지 A4 80g", unit: "2,500매", now: 31000, mro: 21800 },
+    { cat: "생수", name: "오피스디포 PB 생수 무라벨 330mL", unit: "20병", now: 10300, mro: 4900 },
+    { cat: "종이컵", name: "오피스디포 PB 종이컵 6.5oz", unit: "1,000개", now: 14500, mro: 9900 },
+    { cat: "건전지", name: "오피스디포 PB 알카라인 건전지 AA·AAA", unit: "각 2개", now: 940, mro: 640 },
+    { cat: "화장지", name: "오피스디포 PB 3겹 화장지 30m", unit: "30롤", now: 16500, mro: 11900 },
+    { cat: "화장지", name: "오피스디포 PB 3겹 화장지 25m", unit: "30롤", now: 16200, mro: 13900 },
+    { cat: "물티슈", name: "오피스디포 PB 물티슈 캡형", unit: "100매", now: 1000, mro: 890 },
   ],
 } as const;
 
