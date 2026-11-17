@@ -25,7 +25,7 @@ export default function PriceCompare() {
           <div className="flex flex-col gap-1 border-b border-line px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-8">
             <div>
               <h3 className="text-lg font-black sm:text-xl">{priceCompare.title}</h3>
-              <Note className="mt-1 block">실제 드린 견적 금액을 기준으로 정리했어요</Note>
+              <Note className="mt-1 block">같은 제품끼리 비교한 실제 견적이에요</Note>
             </div>
             <p className="text-xs text-muted">{priceCompare.basis}</p>
           </div>
