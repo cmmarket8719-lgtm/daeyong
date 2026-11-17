@@ -14,7 +14,7 @@ export default function Logistics() {
               오늘 주문하면 <span className="text-brand">내일 도착</span>
             </>
           }
-          desc="업계 최대 물류센터에서 자동화 설비로 출고하고, 자체 배송 차량이 직접 납품합니다. 배송비는 무료입니다."
+          desc="업계 최대 물류센터에서 자동화 설비로 출고하고, 자체 배송 차량이 직접 납품합니다."
         />
 
         {/* 사진 모자이크 */}
