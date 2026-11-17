@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PromoSlider from "@/components/PromoSlider";
 import { Note } from "@/components/ui";
 import { ArrowIcon, DocIcon, MailIcon, PhoneIcon } from "@/components/icons";
 import { site } from "@/lib/site";
@@ -113,8 +114,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 오피스디포 소개 슬라이드 */}
+      <PromoSlider />
+
       {/* 대표 강점 3가지 */}
-      <section className="py-16 sm:py-24">
+      <section className="border-t border-line py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="text-[26px] font-black leading-snug tracking-tight sm:text-[34px]">
             바꾸시면 이 세 가지가 달라집니다
