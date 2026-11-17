@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { ArrowIcon } from "./icons";
+import { ArrowIcon, PauseIcon, PlayIcon } from "./icons";
 
 type Slide = {
   image: string;
@@ -84,20 +84,28 @@ const slides: Slide[] = [
   },
 ];
 
-const DURATION = 6000;
+const DURATION = 4000; // 한 장당 4초
 
 export default function PromoSlider() {
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false); // 고객이 ‘멈춤’ 버튼을 눌렀을 때만 멈춤
+  const [run, setRun] = useState(0); // 다시 재생할 때 진행 막대를 처음부터 그리기 위한 값
   const count = slides.length;
 
   const go = useCallback((i: number) => setIndex((i + count) % count), [count]);
 
-  // 마우스를 올려도 멈추지 않고 6초마다 계속 넘어갑니다.
-  // 버튼으로 넘기면 그 장부터 다시 6초를 셉니다.
+  // 4초마다 자동으로 넘어갑니다. 멈춤 상태에서는 넘어가지 않고,
+  // 멈춘 채로 이전·다음·막대를 누르면 그 장에서 그대로 멈춰 있습니다.
   useEffect(() => {
+    if (paused) return;
     const t = window.setTimeout(() => go(index + 1), DURATION);
     return () => window.clearTimeout(t);
-  }, [index, go]);
+  }, [index, paused, run, go]);
+
+  const togglePause = () => {
+    if (paused) setRun((r) => r + 1);
+    setPaused((p) => !p);
+  };
 
   const s = slides[index];
 
@@ -147,6 +155,7 @@ export default function PromoSlider() {
               ))}
               <span className="absolute left-4 top-4 rounded bg-black/45 px-2.5 py-1 text-xs font-bold tabular-nums">
                 {index + 1} / {count}
+                {paused && <span className="ml-1.5 text-sun">· 멈춤</span>}
               </span>
             </div>
 
@@ -179,6 +188,18 @@ export default function PromoSlider() {
                 </button>
                 <button
                   type="button"
+                  onClick={togglePause}
+                  aria-label={paused ? "슬라이드 다시 재생" : "슬라이드 멈춤"}
+                  aria-pressed={paused}
+                  className={`flex h-10 items-center gap-1.5 rounded-full px-3.5 text-sm font-bold transition ${
+                    paused ? "bg-white text-navy hover:bg-white/90" : "border border-white/30 hover:bg-white/10"
+                  }`}
+                >
+                  {paused ? <PlayIcon className="h-4 w-4" /> : <PauseIcon className="h-4 w-4" />}
+                  {paused ? "재생" : "멈춤"}
+                </button>
+                <button
+                  type="button"
                   onClick={() => go(index + 1)}
                   aria-label="다음"
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 hover:bg-white/10"
@@ -196,13 +217,16 @@ export default function PromoSlider() {
                       className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-white/20"
                     >
                       {i < index && <span className="absolute inset-0 bg-white" />}
-                      {i === index && (
-                        <span
-                          key={index}
-                          className="promo-progress absolute inset-y-0 left-0 bg-white"
-                          style={{ animationDuration: `${DURATION}ms` }}
-                        />
-                      )}
+                      {i === index &&
+                        (paused ? (
+                          <span className="absolute inset-0 bg-sun" />
+                        ) : (
+                          <span
+                            key={`${index}-${run}`}
+                            className="promo-progress absolute inset-y-0 left-0 bg-white"
+                            style={{ animationDuration: `${DURATION}ms` }}
+                          />
+                        ))}
                     </button>
                   ))}
                 </div>

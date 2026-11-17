@@ -145,3 +145,15 @@ export const ExternalIcon = ({ className }: P) => (
     <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
   </svg>
 );
+
+export const PauseIcon = ({ className }: P) => (
+  <svg {...base} className={className} strokeWidth={2.4}>
+    <path d="M8 5v14M16 5v14" />
+  </svg>
+);
+
+export const PlayIcon = ({ className }: P) => (
+  <svg {...base} className={className} fill="currentColor">
+    <path d="M7 4.5v15l12-7.5z" />
+  </svg>
+);
