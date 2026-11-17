@@ -31,20 +31,23 @@ export const businessAreas = [
 
 export const history = [
   { year: "1998", text: "㈜베스트오피스 법인 설립" },
-  { year: "2000", text: "물류센터 설립" },
+  { year: "2000", text: "물류센터 설립 · 직영매장 1호점(용산) 개점" },
+  { year: "2002", text: "법인 고객 전문 MRO 사이트 오픈" },
   { year: "2007", text: "오피스디포 코리아로 브랜드명 전환" },
+  { year: "2008", text: "ISO 9001 · ISO 14001 인증 획득" },
   { year: "2019", text: "오피스웨이 합병" },
-  { year: "2022", text: "주주사 변경 (SVO)" },
+  { year: "2020", text: "업계 최초 편의점 숍인숍 도입 (이마트24 제휴)" },
+  { year: "2022", text: "주주 및 대표이사 변경" },
   { year: "2026", text: "대한민국 퍼스트브랜드 대상 9년 연속 수상" },
 ] as const;
 
 export const awards = [
-  { year: "2013", title: "한국소비자 만족 지수", sub: "2년 연속 수상" },
-  { year: "2014", title: "한국프랜차이즈 대상", sub: "산업통상부장관상" },
+  { year: "2012", title: "한국 소비자 만족 지수 1위", sub: "2년 연속 수상 (2011, 2012)" },
+  { year: "2014", title: "한국 프랜차이즈 대상", sub: "산업통상자원부 표창" },
   { year: "2016", title: "대한민국 굿컴퍼니", sub: "머니투데이 선정 대상" },
   { year: "2017", title: "Korea Top Brand Awards", sub: "고객감동브랜드 대상" },
-  { year: "~2025", title: "매일경제 100대 프랜차이즈", sub: "12년 연속 선정" },
-  { year: "~2026", title: "대한민국 퍼스트브랜드 대상", sub: "문구사무용품전문점 9년 1위" },
+  { year: "2013~", title: "매일경제 100대 프랜차이즈", sub: "매년 연속 선정" },
+  { year: "2018~", title: "대한민국 퍼스트브랜드 대상", sub: "문구사무용품전문점 부문 9년 연속" },
 ] as const;
 
 export const finance = {
@@ -351,7 +354,7 @@ export const supportItems = [
 export const stores = [
   { region: "서울 강남·서초", list: ["서초점", "신사논현점", "강남국기원점", "건설회관점", "삼성점", "선릉역점", "역삼점"] },
   { region: "서울 도심·서부", list: ["시청역점", "남대문점", "종로구청점", "청계천점", "상암DMC점"] },
-  { region: "서울 여의도·서남", list: ["트윈타워점", "여의도점", "동여의도점", "구로점", "서울대점"] },
+  { region: "서울 여의도·서남", list: ["여의도점", "동여의도점", "구로점", "서울대점"] },
   { region: "경기·부산", list: ["과천지식센터점", "분당점", "부산점"] },
 ] as const;
 
