@@ -65,7 +65,7 @@ body {
 .promo-text { animation: promo-text 0.6s ease-out both; }
 .promo-progress { animation-name: promo-progress; animation-timing-function: linear; animation-fill-mode: forwards; }
 @media (prefers-reduced-motion: reduce) {
-  .promo-zoom, .promo-pop, .promo-text, .promo-progress { animation: none; }
+  .promo-zoom, .promo-pop, .promo-text { animation: none; }
 }
 
 /* 가로 스크롤 영역의 스크롤바 숨김 */

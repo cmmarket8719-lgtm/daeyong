@@ -88,18 +88,16 @@ const DURATION = 6000;
 
 export default function PromoSlider() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
   const count = slides.length;
 
   const go = useCallback((i: number) => setIndex((i + count) % count), [count]);
 
+  // 마우스를 올려도 멈추지 않고 6초마다 계속 넘어갑니다.
+  // 버튼으로 넘기면 그 장부터 다시 6초를 셉니다.
   useEffect(() => {
-    if (paused) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
     const t = window.setTimeout(() => go(index + 1), DURATION);
     return () => window.clearTimeout(t);
-  }, [index, paused, go]);
+  }, [index, go]);
 
   const s = slides[index];
 
@@ -113,13 +111,7 @@ export default function PromoSlider() {
           <p className="text-[15px] text-muted">1분이면 어떤 회사인지 아실 수 있어요</p>
         </div>
 
-        <div
-          className="relative mt-8 overflow-hidden rounded-lg bg-navy text-white"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-          onFocus={() => setPaused(true)}
-          onBlur={() => setPaused(false)}
-        >
+        <div className="relative mt-8 overflow-hidden rounded-lg bg-navy text-white">
           <div className="grid lg:grid-cols-[1.15fr_1fr]">
             {/* 사진 */}
             <div className="relative aspect-[16/10] overflow-hidden bg-[#0d2559] lg:aspect-auto lg:min-h-[440px]">
@@ -206,9 +198,9 @@ export default function PromoSlider() {
                       {i < index && <span className="absolute inset-0 bg-white" />}
                       {i === index && (
                         <span
-                          key={`${index}-${paused}`}
+                          key={index}
                           className="promo-progress absolute inset-y-0 left-0 bg-white"
-                          style={{ animationDuration: `${DURATION}ms`, animationPlayState: paused ? "paused" : "running" }}
+                          style={{ animationDuration: `${DURATION}ms` }}
                         />
                       )}
                     </button>
