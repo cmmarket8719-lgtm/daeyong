@@ -14,7 +14,7 @@ export const site = {
   brand: "오피스디포",
   logo: "/brand/officedepot-logo.png", // 713x119
   footerRole: "기업 MRO 구매 상담",
-  supplierAddress: "서울 강남구 언주로 711 건설회관 10층/15층 (㈜오피스디포코리아)",
+  supplierAddress: "서울 강남구 언주로 711 건설회관 10층/15층",
 
   // 연락처
   phone: "010-9876-6010",
