@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { NaverMark } from "./BlogSection";
 import { DocIcon, PhoneIcon } from "./icons";
 
 /** 데스크톱: 오른쪽 고정 퀵메뉴 / 모바일: 하단 고정 바 */
@@ -21,9 +22,10 @@ export default function QuickContact() {
             href={site.blogUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block border-b border-line px-2 py-3 text-xs font-bold text-[#03c75a] hover:bg-paper"
+            className="flex flex-col items-center gap-1 border-b border-line px-2 py-3.5 text-xs font-bold text-[#03a24a] hover:bg-[#f2fbf6]"
           >
-            블로그
+            <NaverMark className="h-6 w-6 text-sm" />
+            네이버 블로그
           </a>
           <a href="#top" className="block px-2 py-2.5 text-[11px] font-bold text-muted hover:text-ink">
             TOP ↑
@@ -31,7 +33,7 @@ export default function QuickContact() {
         </div>
       </aside>
 
-      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-line bg-white md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-[1fr_1fr_auto] border-t border-line bg-white md:hidden">
         <Link href="/contact" className="flex items-center justify-center gap-1.5 bg-brand py-4 text-[15px] font-bold text-white">
           <DocIcon className="h-5 w-5" />
           견적 문의
@@ -39,6 +41,16 @@ export default function QuickContact() {
         <a href={site.phoneHref} className="flex items-center justify-center gap-1.5 bg-blue py-4 text-[15px] font-bold text-white">
           <PhoneIcon className="h-5 w-5" />
           전화 상담
+        </a>
+        <a
+          href={site.blogUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="네이버 블로그"
+          className="flex flex-col items-center justify-center gap-0.5 bg-[#03c75a] px-4 text-[11px] font-bold text-white"
+        >
+          <span className="text-lg font-black leading-none">N</span>
+          블로그
         </a>
       </div>
     </>

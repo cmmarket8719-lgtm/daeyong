@@ -81,7 +81,16 @@ export default function Header() {
               {n.label}
             </Link>
           ))}
-          <a href={site.phoneHref} className="mt-5 flex items-center justify-center gap-2 rounded-md bg-blue py-3.5 font-bold text-white">
+          <a
+            href={site.blogUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 flex items-center justify-center gap-2 rounded-md bg-[#03c75a] py-3.5 font-bold text-white"
+          >
+            <span className="flex h-5 w-5 items-center justify-center rounded-sm bg-white text-xs font-black text-[#03c75a]">N</span>
+            네이버 블로그 바로가기
+          </a>
+          <a href={site.phoneHref} className="mt-2 flex items-center justify-center gap-2 rounded-md bg-blue py-3.5 font-bold text-white">
             <PhoneIcon className="h-5 w-5" />
             {site.phone} 전화 상담
           </a>

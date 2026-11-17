@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BlogSection, { NaverMark } from "@/components/BlogSection";
 import PromoSlider from "@/components/PromoSlider";
 import { Note } from "@/components/ui";
 import { ArrowIcon, DocIcon, MailIcon, PhoneIcon } from "@/components/icons";
@@ -88,6 +89,16 @@ export default function Home() {
               </a>
             </div>
             <p className="mt-3 text-sm text-white/70">통화가 어려우시면 문자 남겨 주세요. 확인하는 대로 연락드립니다.</p>
+            <a
+              href={site.blogUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2.5 rounded-md bg-white/10 px-4 py-2.5 text-[15px] font-bold ring-1 ring-white/25 transition hover:bg-white/20"
+            >
+              <NaverMark className="h-6 w-6 text-sm" />
+              실제 상담 사례는 네이버 블로그에서 보기
+              <ArrowIcon className="h-4 w-4" />
+            </a>
           </div>
 
           <p className="absolute bottom-6 right-4 hidden rotate-[-3deg] rounded bg-white px-4 py-2 shadow-md sm:right-8 md:block">
@@ -210,6 +221,9 @@ export default function Home() {
           </ul>
         </div>
       </section>
+
+      {/* 네이버 블로그 */}
+      <BlogSection />
 
       {/* 마지막 문의 */}
       <section className="bg-navy text-white">
