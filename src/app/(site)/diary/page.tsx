@@ -146,7 +146,7 @@ export default function DiaryPage() {
       </section>
 
       {/* 협력사 소개 */}
-      <section id="maker" className="scroll-mt-28 bg-blue-soft py-14 sm:py-20">
+      <section id="maker" className="scroll-mt-32 bg-blue-soft py-14 sm:py-20">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
             <div>
@@ -191,7 +191,7 @@ export default function DiaryPage() {
       </section>
 
       {/* 실물 사진 */}
-      <section id="real" className="scroll-mt-28 py-14 sm:py-20">
+      <section id="real" className="scroll-mt-32 py-14 sm:py-20">
         <Container>
           <div className="flex flex-wrap items-end justify-between gap-3">
             <SectionHead eyebrow="실물 사진" title="카탈로그 사진 말고, 실제로 받아 본 모습" />
@@ -208,7 +208,7 @@ export default function DiaryPage() {
       </section>
 
       {/* 라인업 */}
-      <section id="lineup" className="scroll-mt-28 bg-paper py-14 sm:py-20">
+      <section id="lineup" className="scroll-mt-32 bg-paper py-14 sm:py-20">
         <Container>
           <SectionHead
             eyebrow="다이어리 종류"
@@ -222,7 +222,7 @@ export default function DiaryPage() {
       </section>
 
       {/* 맞춤 제작 */}
-      <section id="custom" className="scroll-mt-28 py-14 sm:py-20">
+      <section id="custom" className="scroll-mt-32 py-14 sm:py-20">
         <Container>
           <SectionHead
             eyebrow="로고·맞춤 제작"
@@ -258,7 +258,7 @@ export default function DiaryPage() {
       </section>
 
       {/* 제작 사례 */}
-      <section id="cases" className="scroll-mt-28 bg-blue-soft py-14 sm:py-20">
+      <section id="cases" className="scroll-mt-32 bg-blue-soft py-14 sm:py-20">
         <Container>
           <SectionHead
             eyebrow="제작 사례"
@@ -274,7 +274,7 @@ export default function DiaryPage() {
       </section>
 
       {/* 주문 방법 */}
-      <section id="order" className="scroll-mt-28 py-14 sm:py-20">
+      <section id="order" className="scroll-mt-32 py-14 sm:py-20">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-14">
             <div>

@@ -13,7 +13,6 @@ export default function Footer() {
               <span className="pb-0.5 text-xs font-medium text-muted">{site.footerRole}</span>
             </div>
             <ul className="mt-5 space-y-1">
-              <li>{site.supplierAddress}</li>
               <li>
                 담당 : {site.agentName}</li>
               <li>

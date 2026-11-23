@@ -48,7 +48,7 @@ export default function Home() {
       {/* 첫 화면 */}
       <section className="border-b border-line bg-white">
         {/* 물류창고 사진을 화면 가득, 그 위에 문구와 견적 버튼 */}
-        <div className="relative isolate flex min-h-[600px] items-center overflow-hidden bg-navy sm:min-h-[640px] lg:min-h-[calc(100svh-64px-62px)]">
+        <div className="relative isolate flex min-h-[600px] items-center overflow-hidden bg-navy sm:min-h-[640px] lg:min-h-[calc(100svh-64px-47px-62px)]">
           <Image
             src="/photos/warehouse.webp"
             alt="오피스디포 물류센터 내부. 랙마다 상품이 쌓여 있다"
