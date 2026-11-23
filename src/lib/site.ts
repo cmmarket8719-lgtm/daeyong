@@ -29,7 +29,7 @@ export const site = {
   // 검색엔진 소유 확인 코드 (구글 서치콘솔·네이버 서치어드바이저에서 받은 값을 넣으면 <meta>로 자동 출력)
   verification: {
     google: "",
-    naver: "",
+    naver: "e4f2de03818a7d5f75740828d80b5b418aff3003",
   },
 
   // 검색 키워드 (구글·네이버·AI 검색이 사이트 주제를 파악하는 데 참고)
