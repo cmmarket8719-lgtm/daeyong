@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { JsonLd, breadcrumbJsonLd, pageMeta, faqJsonLd } from "@/lib/seo";
 import QuoteForm from "@/components/QuoteForm";
 import Contact from "@/components/sections/Contact";
 import Faq from "@/components/sections/Faq";
@@ -7,14 +8,18 @@ import { Note, PageHero } from "@/components/ui";
 import { prep } from "@/lib/content";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
+  path: "/contact",
   title: "견적·상담 문의",
   description: "회사 정보와 자주 사는 품목을 남겨 주시면 현재 구매가와 비교한 견적서를 무료로 보내 드립니다.",
-};
+  keywords: ["사무용품 견적", "MRO 견적 문의", "기업 사무용품 상담"],
+});
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("/contact")} />
+      <JsonLd data={faqJsonLd} />
       <PageHero
         title="견적·상담 문의"
         desc="견적은 무료이고, 받아 보신 뒤 결정하셔도 됩니다."

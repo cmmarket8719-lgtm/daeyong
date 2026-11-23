@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" className="flex shrink-0 items-center gap-2 sm:gap-3" onClick={() => setOpen(false)} aria-label={`${site.brand} 기업 MRO 구매상담 홈`}>
           <Image src={site.logo} alt={site.brand} width={713} height={119} preload className="h-6 w-auto sm:h-8" />
           {/* 모바일: 좁은 화면용 두 줄 */}
@@ -28,14 +28,14 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-5 whitespace-nowrap lg:flex xl:gap-7">
           {menu.map((n) => {
             const active = pathname.startsWith(n.href);
             return (
               <Link
                 key={n.href}
                 href={n.href}
-                className={`relative py-5 text-[15px] font-bold transition hover:text-blue ${active ? "text-blue" : "text-ink"}`}
+                className={`relative py-5 text-[14px] font-bold xl:text-[15px] transition hover:text-blue ${active ? "text-blue" : "text-ink"}`}
               >
                 {n.label}
                 {active && <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue" />}
@@ -44,8 +44,8 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <a href={site.phoneHref} className="flex items-center gap-1.5 text-[15px] font-bold text-ink hover:text-blue">
+        <div className="hidden shrink-0 items-center gap-3 whitespace-nowrap lg:flex">
+          <a href={site.phoneHref} className="hidden items-center gap-1.5 text-[15px] font-bold text-ink hover:text-blue xl:flex">
             <PhoneIcon className="h-4 w-4 text-blue" />
             {site.phone}
           </a>
@@ -68,6 +68,30 @@ export default function Header() {
           </span>
         </button>
       </div>
+
+      {/* 좁은 화면: 로고 바로 아래에 전체 메뉴 (옆으로 밀어서 보기) */}
+      <nav aria-label="주요 메뉴" className="no-scrollbar overflow-x-auto border-t border-line lg:hidden">
+        <ul className="flex w-max gap-1 px-2.5">
+          {nav.map((n) => {
+            const active = pathname.startsWith(n.href);
+            const isContact = n.href === "/contact";
+            return (
+              <li key={n.href}>
+                <Link
+                  href={n.href}
+                  onClick={() => setOpen(false)}
+                  className={`relative block whitespace-nowrap px-2.5 py-3 text-[14px] font-bold ${
+                    isContact ? "text-brand" : active ? "text-blue" : "text-ink"
+                  }`}
+                >
+                  {n.label}
+                  {active && <span className="absolute inset-x-2.5 bottom-0 h-0.5 bg-blue" />}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
 
       {open && (
         <nav className="border-t border-line bg-white px-4 pb-5 lg:hidden">

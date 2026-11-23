@@ -16,15 +16,32 @@ const pen = Nanum_Pen_Script({
   weight: "400",
 });
 
+// 검색엔진 소유 확인 코드는 site.ts에 값이 있을 때만 출력합니다.
+const verificationOther: Record<string, string> = {};
+if (site.verification.naver) verificationOther["naver-site-verification"] = site.verification.naver;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.title, template: `%s | 오피스디포 MRO 김대용` },
   description: site.description,
+  applicationName: "오피스디포 기업 MRO 구매상담",
+  keywords: [...site.keywords],
+  authors: [{ name: site.managerName, url: site.blogUrl }],
+  category: "business",
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     title: site.title,
     description: site.description,
+    url: "/",
+    siteName: "오피스디포 기업 MRO 구매상담 · 김대용",
     type: "website",
     locale: "ko_KR",
+  },
+  twitter: { card: "summary_large_image", title: site.title, description: site.description },
+  verification: {
+    ...(site.verification.google ? { google: site.verification.google } : {}),
+    ...(Object.keys(verificationOther).length ? { other: verificationOther } : {}),
   },
 };
 

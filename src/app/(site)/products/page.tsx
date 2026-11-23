@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
+import { JsonLd, breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 import { ContactBand, PageHero } from "@/components/ui";
 import Products from "@/components/sections/Products";
 import Logistics from "@/components/sections/Logistics";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
+  path: "/products",
   title: "상품·배송",
   description: "약 8만여 종 상품과 자체 물류센터, 약 60여 대의 직배송 차량으로 주문 다음 날 배송합니다.",
-};
+  keywords: ["사무용품 종류", "MRO 자재", "다음날 배송", "사무용품 직배송"],
+});
 
 export default function ProductsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("/products")} />
       <PageHero
         title="상품·배송"
         desc="사무용품부터 현장 자재까지 약 8만여 종. 오늘 주문하시면 내일 받으십니다."
