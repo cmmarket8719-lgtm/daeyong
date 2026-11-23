@@ -2,7 +2,7 @@
 
 export const site = {
   // 사이트 주소 (도메인을 연결하면 여기만 바꾸면 됩니다)
-  url: "https://daeyong.vercel.app",
+  url: "https://www.officedepot-b2bmro.co.kr",
 
   // 운영 주체 (견적 폼 동의 문구·개인정보처리방침에 표시)
   agentName: "오피스디포 B2B영업팀 김대용",

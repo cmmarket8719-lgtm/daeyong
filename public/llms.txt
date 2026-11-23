@@ -16,11 +16,11 @@
 
 ## 페이지
 
-- [홈](https://daeyong.vercel.app/): 오피스디포 MRO를 쓰면 달라지는 점, 담당자 인사, 상담 사례 요약
-- [회사소개](https://daeyong.vercel.app/about): 오피스디포 개요, 연혁·수상, 품질 관리와 고객지원, 직영점·카피센터
-- [MRO몰 기능](https://daeyong.vercel.app/mall): 구매 승인, 예산 관리, 계정 관리, 정산·세금계산서, 법인카드·후불 결제, 구매대행, 명함 신청, 몰 커스터마이징
-- [상품·배송](https://daeyong.vercel.app/products): 13개 카테고리 약 8만여 종, 물류센터와 배송 방식
-- [비교견적](https://daeyong.vercel.app/price): 일반 쇼핑몰 구매가와 MRO 제안가 비교 예시, 견적 진행 절차
-- [도입사례](https://daeyong.vercel.app/cases): IT기업·제조사·유통사 등 MRO 도입 상담 사례
-- [기업다이어리제작](https://daeyong.vercel.app/diary): 협력사 디와이오피스가 제작·유통을 전담하는 기업 로고 다이어리 주문 제작
-- [견적·상담 문의](https://daeyong.vercel.app/contact): 견적 의뢰 양식, 진행 순서, 자주 묻는 질문
+- [홈](https://www.officedepot-b2bmro.co.kr/): 오피스디포 MRO를 쓰면 달라지는 점, 담당자 인사, 상담 사례 요약
+- [회사소개](https://www.officedepot-b2bmro.co.kr/about): 오피스디포 개요, 연혁·수상, 품질 관리와 고객지원, 직영점·카피센터
+- [MRO몰 기능](https://www.officedepot-b2bmro.co.kr/mall): 구매 승인, 예산 관리, 계정 관리, 정산·세금계산서, 법인카드·후불 결제, 구매대행, 명함 신청, 몰 커스터마이징
+- [상품·배송](https://www.officedepot-b2bmro.co.kr/products): 13개 카테고리 약 8만여 종, 물류센터와 배송 방식
+- [비교견적](https://www.officedepot-b2bmro.co.kr/price): 일반 쇼핑몰 구매가와 MRO 제안가 비교 예시, 견적 진행 절차
+- [도입사례](https://www.officedepot-b2bmro.co.kr/cases): IT기업·제조사·유통사 등 MRO 도입 상담 사례
+- [기업다이어리제작](https://www.officedepot-b2bmro.co.kr/diary): 협력사 디와이오피스가 제작·유통을 전담하는 기업 로고 다이어리 주문 제작
+- [견적·상담 문의](https://www.officedepot-b2bmro.co.kr/contact): 견적 의뢰 양식, 진행 순서, 자주 묻는 질문
