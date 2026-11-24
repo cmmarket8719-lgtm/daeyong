@@ -3,7 +3,12 @@ import CallButton from "@/components/CallButton";
 import { priceCompare, quoteSteps } from "@/lib/content";
 
 export default function PriceCompare() {
-  const rows = priceCompare.rows.map((r) => ({ ...r, save: r.now - r.mro, rate: Math.round(((r.now - r.mro) / r.now) * 1000) / 10 }));
+  const rows = priceCompare.rows.map((r) => ({
+    ...r,
+    mroLabel: "mroText" in r ? r.mroText : won(r.mro),
+    save: r.now - r.mro,
+    rate: Math.round(((r.now - r.mro) / r.now) * 1000) / 10,
+  }));
 
   return (
     <section id="price" className="bg-navy py-20 text-white sm:py-28">
@@ -52,7 +57,7 @@ export default function PriceCompare() {
                     <span className="ml-2 text-sm text-muted">{r.unit}</span>
                   </td>
                   <td className="px-4 py-4 text-right tabular-nums text-muted line-through decoration-muted/50">{won(r.now)}</td>
-                  <td className="px-4 py-4 text-right font-black tabular-nums text-blue-dark">{won(r.mro)}</td>
+                  <td className="px-4 py-4 text-right font-black tabular-nums text-blue-dark">{r.mroLabel}</td>
                   <td className="px-8 py-4">
                     <div className="flex items-center gap-3">
                       <span className="h-2.5 flex-1 overflow-hidden rounded-full bg-paper">
@@ -81,7 +86,7 @@ export default function PriceCompare() {
                 <p className="mt-2 text-sm">
                   <span className="text-muted line-through">{won(r.now)}</span>
                   <span className="mx-2 text-muted">→</span>
-                  <span className="font-black text-blue-dark">{won(r.mro)}</span>
+                  <span className="font-black text-blue-dark">{r.mroLabel}</span>
                 </p>
               </li>
             ))}
